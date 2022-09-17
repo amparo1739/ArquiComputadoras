@@ -1,0 +1,553 @@
+m255
+K4
+z2
+!s11e MIXED_VERSIONS
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/amparo/ArquiComputadoras/Practico2/simulation/modelsim
+vadder
+Z1 DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
+Z2 !s110 1663426943
+!i10b 1
+!s100 a3zDN1NYD4EHE0kQDg6Iz2
+Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IRi@E<IiiN[S53VThT>U=F2
+Z4 VDg1SIo80bB@j0V0VzS_@n1
+S1
+R0
+w1663417047
+8/home/amparo/ArquiComputadoras/Practico1/adder.sv
+F/home/amparo/ArquiComputadoras/Practico1/adder.sv
+!i122 4
+L0 3 7
+Z5 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z6 !s108 1663426943.000000
+!s107 /home/amparo/ArquiComputadoras/Practico1/adder.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+/home/amparo/ArquiComputadoras/Practico1|/home/amparo/ArquiComputadoras/Practico1/adder.sv|
+!i113 1
+Z7 o-sv -work work
+Z8 !s92 -sv -work work +incdir+/home/amparo/ArquiComputadoras/Practico1
+Z9 tCvgOpt 0
+valu
+R1
+R2
+!i10b 1
+!s100 `_D`M<Xm=lHIMUoZDm?nn0
+R3
+InQczFR:fgf>CLhR9B2kHh2
+R4
+S1
+R0
+w1663415765
+8/home/amparo/ArquiComputadoras/Practico1/alu.sv
+F/home/amparo/ArquiComputadoras/Practico1/alu.sv
+!i122 3
+L0 1 19
+R5
+r1
+!s85 0
+31
+R6
+!s107 /home/amparo/ArquiComputadoras/Practico1/alu.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+/home/amparo/ArquiComputadoras/Practico1|/home/amparo/ArquiComputadoras/Practico1/alu.sv|
+!i113 1
+R7
+R8
+R9
+valudec
+R1
+Z10 !s110 1663426945
+!i10b 1
+!s100 :;H73aVU>X;gEYYfBOVnz2
+R3
+IgR4IadF;kIC_@X^g>MF1z2
+R4
+S1
+R0
+Z11 w1663418432
+8/home/amparo/ArquiComputadoras/Practico2/aludec.sv
+F/home/amparo/ArquiComputadoras/Practico2/aludec.sv
+!i122 17
+L0 3 13
+R5
+r1
+!s85 0
+31
+Z12 !s108 1663426945.000000
+!s107 /home/amparo/ArquiComputadoras/Practico2/aludec.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+/home/amparo/ArquiComputadoras/Practico2|/home/amparo/ArquiComputadoras/Practico2/aludec.sv|
+!i113 1
+R7
+Z13 !s92 -sv -work work +incdir+/home/amparo/ArquiComputadoras/Practico2
+R9
+vcontroller
+R1
+R10
+!i10b 1
+!s100 aPJ8KWRl5DC0DV3[6oEG63
+R3
+IYd7YjK`K6?mOLIWdCkkz:2
+R4
+S1
+R0
+R11
+8/home/amparo/ArquiComputadoras/Practico2/controller.sv
+F/home/amparo/ArquiComputadoras/Practico2/controller.sv
+!i122 16
+L0 3 23
+R5
+r1
+!s85 0
+31
+R12
+!s107 /home/amparo/ArquiComputadoras/Practico2/controller.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+/home/amparo/ArquiComputadoras/Practico2|/home/amparo/ArquiComputadoras/Practico2/controller.sv|
+!i113 1
+R7
+R13
+R9
+vdatapath
+R1
+R10
+!i10b 1
+!s100 M9U0[fYhjZ7XO`zd:dQR^3
+R3
+I]k?[1>`YmzWmUU3MocX5S2
+R4
+S1
+R0
+w1663419522
+8/home/amparo/ArquiComputadoras/Practico2/datapath.sv
+F/home/amparo/ArquiComputadoras/Practico2/datapath.sv
+!i122 15
+L0 3 71
+R5
+r1
+!s85 0
+31
+R12
+!s107 /home/amparo/ArquiComputadoras/Practico2/datapath.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+/home/amparo/ArquiComputadoras/Practico2|/home/amparo/ArquiComputadoras/Practico2/datapath.sv|
+!i113 1
+R7
+R13
+R9
+vdecode
+R1
+R10
+!i10b 1
+!s100 ez[Sj6NLDB;VJc@X`e1Ui0
+R3
+I:XFPhC9e66;;@fR_]_XBU0
+R4
+S1
+R0
+R11
+8/home/amparo/ArquiComputadoras/Practico2/decode.sv
+F/home/amparo/ArquiComputadoras/Practico2/decode.sv
+!i122 14
+L0 3 17
+R5
+r1
+!s85 0
+31
+R12
+!s107 /home/amparo/ArquiComputadoras/Practico2/decode.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+/home/amparo/ArquiComputadoras/Practico2|/home/amparo/ArquiComputadoras/Practico2/decode.sv|
+!i113 1
+R7
+R13
+R9
+Edmem
+R11
+Z14 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z15 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z16 DPx4 ieee 16 std_logic_signed 0 22 C<aanc0R`<LWPSe[JYRP^3
+Z17 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z18 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 18
+R0
+Z19 8/home/amparo/ArquiComputadoras/Practico2/dmem.vhd
+Z20 F/home/amparo/ArquiComputadoras/Practico2/dmem.vhd
+l0
+L12 1
+V=VcFJ1ISz_H?1@fo;QFYO1
+!s100 9UhgcemjCI:F<bA>GRZY=0
+Z21 OV;C;2020.1;71
+31
+R10
+!i10b 1
+R12
+Z22 !s90 -reportprogress|300|-93|-work|work|/home/amparo/ArquiComputadoras/Practico2/dmem.vhd|
+Z23 !s107 /home/amparo/ArquiComputadoras/Practico2/dmem.vhd|
+!i113 1
+Z24 o-93 -work work
+Z25 tExplicit 1 CvgOpt 0
+Abehave
+R14
+R15
+R16
+R17
+R18
+DEx4 work 4 dmem 0 22 =VcFJ1ISz_H?1@fo;QFYO1
+!i122 18
+l50
+L21 49
+VnM8aQ:=>gYVm<K;[K6<VQ1
+!s100 a2K;HL21gA:Y<M8M2VzYh0
+R21
+31
+R10
+!i10b 1
+R12
+R22
+R23
+!i113 1
+R24
+R25
+vexecute
+R1
+R2
+!i10b 1
+!s100 h@YdJWTSZYnBI;XFEmd>c1
+R3
+I67G0<XmA=@Q2cfEzd2Ccd0
+R4
+S1
+R0
+w1663416691
+8/home/amparo/ArquiComputadoras/Practico1/execute.sv
+F/home/amparo/ArquiComputadoras/Practico1/execute.sv
+!i122 2
+L0 3 22
+R5
+r1
+!s85 0
+31
+R6
+!s107 /home/amparo/ArquiComputadoras/Practico1/execute.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+/home/amparo/ArquiComputadoras/Practico1|/home/amparo/ArquiComputadoras/Practico1/execute.sv|
+!i113 1
+R7
+R8
+R9
+vfetch
+R1
+R2
+!i10b 1
+!s100 jX1mIb>J`QE1ojiO>bTMJ2
+R3
+Ie3YdL3<O01cOKYVIh:GeS0
+R4
+S1
+R0
+w1663416650
+8/home/amparo/ArquiComputadoras/Practico1/fetch.sv
+F/home/amparo/ArquiComputadoras/Practico1/fetch.sv
+!i122 1
+L0 2 20
+R5
+r1
+!s85 0
+31
+R6
+!s107 /home/amparo/ArquiComputadoras/Practico1/fetch.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+/home/amparo/ArquiComputadoras/Practico1|/home/amparo/ArquiComputadoras/Practico1/fetch.sv|
+!i113 1
+R7
+R8
+R9
+vflopr
+R1
+R2
+!i10b 1
+!s100 3dSG^3?PnVPE9OabBKgR60
+R3
+IWKWmV2?E1KW[ke]EU7WL;0
+R4
+S1
+R0
+w1663414813
+8/home/amparo/ArquiComputadoras/Practico1/flopr.sv
+F/home/amparo/ArquiComputadoras/Practico1/flopr.sv
+!i122 0
+L0 1 10
+R5
+r1
+!s85 0
+31
+R6
+!s107 /home/amparo/ArquiComputadoras/Practico1/flopr.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+/home/amparo/ArquiComputadoras/Practico1|/home/amparo/ArquiComputadoras/Practico1/flopr.sv|
+!i113 1
+R7
+R8
+R9
+vimem
+R1
+Z26 !s110 1663426944
+!i10b 1
+!s100 CJDeS0f0I251kZVJjzk<L0
+R3
+I7hdQ_bjM6QA5:gci4^2a03
+R4
+S1
+R0
+w1663424885
+8/home/amparo/ArquiComputadoras/Practico1/imem.sv
+F/home/amparo/ArquiComputadoras/Practico1/imem.sv
+!i122 10
+L0 1 99
+R5
+r1
+!s85 0
+31
+Z27 !s108 1663426944.000000
+!s107 /home/amparo/ArquiComputadoras/Practico1/imem.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+/home/amparo/ArquiComputadoras/Practico1|/home/amparo/ArquiComputadoras/Practico1/imem.sv|
+!i113 1
+R7
+R8
+R9
+vmaindec
+R1
+R26
+!i10b 1
+!s100 ibKG]K=Th:>>j7E5Wi^U40
+R3
+IemYS8W4:U0i=b3ca@PGkQ1
+R4
+S1
+R0
+w1663416181
+8/home/amparo/ArquiComputadoras/Practico1/maindec.sv
+F/home/amparo/ArquiComputadoras/Practico1/maindec.sv
+!i122 9
+L0 1 24
+R5
+r1
+!s85 0
+31
+R27
+!s107 /home/amparo/ArquiComputadoras/Practico1/maindec.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+/home/amparo/ArquiComputadoras/Practico1|/home/amparo/ArquiComputadoras/Practico1/maindec.sv|
+!i113 1
+R7
+R8
+R9
+vmemory
+R1
+R10
+!i10b 1
+!s100 LP[7i;OQNRmgDe[<ZEPcc0
+R3
+IBMUCBCFoYH2_A>P9T5fT:3
+R4
+S1
+R0
+R11
+8/home/amparo/ArquiComputadoras/Practico2/memory.sv
+F/home/amparo/ArquiComputadoras/Practico2/memory.sv
+!i122 13
+L0 3 6
+R5
+r1
+!s85 0
+31
+R12
+!s107 /home/amparo/ArquiComputadoras/Practico2/memory.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+/home/amparo/ArquiComputadoras/Practico2|/home/amparo/ArquiComputadoras/Practico2/memory.sv|
+!i113 1
+R7
+R13
+R9
+vmux2
+R1
+R26
+!i10b 1
+!s100 XfdfLdSb9dmK[VUYkeA:Q1
+R3
+IWBn9Sbz53iD?CS=el?H?o3
+R4
+S1
+R0
+w1663417025
+8/home/amparo/ArquiComputadoras/Practico1/mux2.sv
+F/home/amparo/ArquiComputadoras/Practico1/mux2.sv
+!i122 8
+Z28 L0 3 8
+R5
+r1
+!s85 0
+31
+R27
+!s107 /home/amparo/ArquiComputadoras/Practico1/mux2.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+/home/amparo/ArquiComputadoras/Practico1|/home/amparo/ArquiComputadoras/Practico1/mux2.sv|
+!i113 1
+R7
+R8
+R9
+vprocessor_arm
+R1
+R26
+!i10b 1
+!s100 ZeNRfI>jjlb:;YUZbb8A73
+R3
+IR`jR2`j=_kc=9NcXamP3R2
+R4
+S1
+R0
+R11
+8/home/amparo/ArquiComputadoras/Practico2/processor_arm.sv
+F/home/amparo/ArquiComputadoras/Practico2/processor_arm.sv
+!i122 12
+L0 3 55
+R5
+r1
+!s85 0
+31
+R27
+!s107 /home/amparo/ArquiComputadoras/Practico2/processor_arm.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+/home/amparo/ArquiComputadoras/Practico2|/home/amparo/ArquiComputadoras/Practico2/processor_arm.sv|
+!i113 1
+R7
+R13
+R9
+vprocessor_tb
+R1
+R10
+!i10b 1
+!s100 NR9ogaN8i]gDXD70Wg=072
+R3
+I_B:fBFd?CKkkE_<5]`]^D2
+R4
+S1
+R0
+w1663421972
+8/home/amparo/ArquiComputadoras/Practico2/processor_tb.sv
+F/home/amparo/ArquiComputadoras/Practico2/processor_tb.sv
+!i122 19
+L0 4 25
+R5
+r1
+!s85 0
+31
+R12
+!s107 /home/amparo/ArquiComputadoras/Practico2/processor_tb.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+/home/amparo/ArquiComputadoras/Practico2|/home/amparo/ArquiComputadoras/Practico2/processor_tb.sv|
+!i113 1
+R7
+R13
+R9
+vregfile
+R1
+R26
+!i10b 1
+!s100 6gM?=ZLiAjRPC7fzF6Ln`3
+R3
+IPU41:GhZe;TBJHZ>5?lXk0
+R4
+S1
+R0
+w1663416028
+8/home/amparo/ArquiComputadoras/Practico1/regfile.sv
+F/home/amparo/ArquiComputadoras/Practico1/regfile.sv
+!i122 7
+L0 1 41
+R5
+r1
+!s85 0
+31
+R27
+!s107 /home/amparo/ArquiComputadoras/Practico1/regfile.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+/home/amparo/ArquiComputadoras/Practico1|/home/amparo/ArquiComputadoras/Practico1/regfile.sv|
+!i113 1
+R7
+R8
+R9
+vsignext
+R1
+R26
+!i10b 1
+!s100 G00EOWH64GAVjX4caM]i82
+R3
+I8V5edVebzGAYJ`gbl803H2
+R4
+S1
+R0
+w1663415389
+8/home/amparo/ArquiComputadoras/Practico1/signext.sv
+F/home/amparo/ArquiComputadoras/Practico1/signext.sv
+!i122 6
+L0 1 17
+R5
+r1
+!s85 0
+31
+R27
+!s107 /home/amparo/ArquiComputadoras/Practico1/signext.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+/home/amparo/ArquiComputadoras/Practico1|/home/amparo/ArquiComputadoras/Practico1/signext.sv|
+!i113 1
+R7
+R8
+R9
+vsl2
+R1
+R26
+!i10b 1
+!s100 `c@h0_TfTnn`3CajieZiC2
+R3
+IIHdOInoT@a99@D6gTBcEg0
+R4
+S1
+R0
+w1663417005
+8/home/amparo/ArquiComputadoras/Practico1/sl2.sv
+F/home/amparo/ArquiComputadoras/Practico1/sl2.sv
+!i122 5
+L0 3 9
+R5
+r1
+!s85 0
+31
+R6
+!s107 /home/amparo/ArquiComputadoras/Practico1/sl2.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+/home/amparo/ArquiComputadoras/Practico1|/home/amparo/ArquiComputadoras/Practico1/sl2.sv|
+!i113 1
+R7
+R8
+R9
+vwriteback
+R1
+R26
+!i10b 1
+!s100 lem0cZaoaK<4K2n`WO?nY2
+R3
+I>O2A4V>mflFLSQ9cnLUaW0
+R4
+S1
+R0
+R11
+8/home/amparo/ArquiComputadoras/Practico2/writeback.sv
+F/home/amparo/ArquiComputadoras/Practico2/writeback.sv
+!i122 11
+R28
+R5
+r1
+!s85 0
+31
+R27
+!s107 /home/amparo/ArquiComputadoras/Practico2/writeback.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+/home/amparo/ArquiComputadoras/Practico2|/home/amparo/ArquiComputadoras/Practico2/writeback.sv|
+!i113 1
+R7
+R13
+R9

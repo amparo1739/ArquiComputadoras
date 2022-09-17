@@ -1,0 +1,6 @@
+Warning (10273): Verilog HDL warning at alu_tb.sv(73): extended using "x" or "z" File: /home/amparo/Escritorio/ArquiComputadoras /Practico1/alu_tb.sv Line: 73
+Warning (10273): Verilog HDL warning at signext_tb.sv(46): extended using "x" or "z" File: /home/amparo/Escritorio/ArquiComputadoras /Practico1/signext_tb.sv Line: 46
+Warning (10273): Verilog HDL warning at regfile_tb.sv(96): extended using "x" or "z" File: /home/amparo/Escritorio/ArquiComputadoras /Practico1/regfile_tb.sv Line: 96
+Warning (10273): Verilog HDL warning at maindec_tb.sv(49): extended using "x" or "z" File: /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv Line: 49
+Warning (10273): Verilog HDL warning at imem_tb.sv(91): extended using "x" or "z" File: /home/amparo/Escritorio/ArquiComputadoras /Practico1/imem_tb.sv Line: 91
+Warning (10273): Verilog HDL warning at flopr_tb.sv(53): extended using "x" or "z" File: /home/amparo/Escritorio/ArquiComputadoras /Practico1/flopr_tb.sv Line: 53

@@ -1,0 +1,100 @@
+# do SingleCycleProcessor_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 2020.1 Lib Mapping Utility 2020.02 Feb 28 2020
+# vmap work rtl_work 
+# Copying /home/amparo/intelFPGA_lite/20.1/modelsim_ase/linuxaloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -sv -work work +incdir+/home/amparo/Escritorio/ArquiComputadoras\ /Practico1 {/home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 09:37:23 on Sep 17,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+/home/amparo/Escritorio/ArquiComputadoras /Practico1" /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec.sv 
+# -- Compiling module maindec
+# 
+# Top level modules:
+# 	maindec
+# End time: 09:37:23 on Sep 17,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -sv -work work +incdir+/home/amparo/Escritorio/ArquiComputadoras\ /Practico1 {/home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv}
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 09:37:23 on Sep 17,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+/home/amparo/Escritorio/ArquiComputadoras /Practico1" /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv 
+# -- Compiling module maindec_tb
+# ** Warning: /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv(15): (vlog-2121) Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+# ** Warning: /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv(15): (vlog-2121) Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+# ** Warning: /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv(15): (vlog-2121) Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+# ** Warning: /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv(15): (vlog-2121) Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+# ** Warning: /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv(15): (vlog-2121) Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+# ** Warning: /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv(15): (vlog-2121) Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+# ** Warning: /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv(15): (vlog-2121) Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+# ** Warning: /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv(16): (vlog-2121) Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+# ** Warning: /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv(16): (vlog-2121) Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+# ** Warning: /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv(16): (vlog-2121) Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+# ** Warning: /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv(16): (vlog-2121) Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+# ** Warning: /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv(16): (vlog-2121) Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+# ** Warning: /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv(16): (vlog-2121) Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+# ** Warning: /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv(16): (vlog-2121) Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+# ** Warning: /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv(17): (vlog-2121) Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+# ** Warning: /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv(17): (vlog-2121) Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+# ** Warning: /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv(17): (vlog-2121) Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+# ** Warning: /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv(17): (vlog-2121) Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+# ** Warning: /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv(17): (vlog-2121) Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+# ** Warning: /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv(17): (vlog-2121) Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+# ** Warning: /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv(17): (vlog-2121) Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+# ** Warning: /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv(18): (vlog-2121) Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+# ** Warning: /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv(18): (vlog-2121) Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+# ** Warning: /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv(18): (vlog-2121) Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+# ** Warning: /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv(18): (vlog-2121) Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+# ** Warning: /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv(18): (vlog-2121) Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+# ** Warning: /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv(18): (vlog-2121) Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+# ** Warning: /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv(18): (vlog-2121) Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+# ** Warning: /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv(19): (vlog-2121) Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+# ** Warning: /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv(19): (vlog-2121) Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+# ** Warning: /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv(19): (vlog-2121) Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+# ** Warning: /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv(19): (vlog-2121) Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+# ** Warning: /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv(19): (vlog-2121) Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+# ** Warning: /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv(19): (vlog-2121) Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+# ** Warning: /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv(19): (vlog-2121) Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+# ** Warning: /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv(20): (vlog-2121) Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+# ** Warning: /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv(20): (vlog-2121) Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+# ** Warning: /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv(20): (vlog-2121) Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+# ** Warning: /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv(20): (vlog-2121) Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+# ** Warning: /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv(20): (vlog-2121) Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+# ** Warning: /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv(20): (vlog-2121) Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+# ** Warning: /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv(20): (vlog-2121) Illegal concatenation of an unsized constant. Will treat it as a 32-bit value.
+# 
+# Top level modules:
+# 	maindec_tb
+# End time: 09:37:23 on Sep 17,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 42
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc"  maindec_tb
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=""+acc"" maindec_tb 
+# Start time: 09:37:23 on Sep 17,2022
+# Loading sv_std.std
+# Loading work.maindec_tb
+# Loading work.maindec
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# ERROR!!: test finished with unexpected result!
+# ERROR!!: test finished with unexpected result!
+# ERROR!!: test finished with unexpected result!
+# ERROR!!: test finished with unexpected result!
+# ERROR!!: test finished with unexpected result!
+# ERROR!!: test finished with unexpected result!
+#          1/         7 tests finished succesfully
+# ** Note: $stop    : /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv(51)
+#    Time: 66 ps  Iteration: 0  Instance: /maindec_tb
+# Break in Module maindec_tb at /home/amparo/Escritorio/ArquiComputadoras /Practico1/maindec_tb.sv line 51
+# End time: 09:39:20 on Sep 17,2022, Elapsed time: 0:01:57
+# Errors: 0, Warnings: 0
