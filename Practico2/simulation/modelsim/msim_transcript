@@ -9,190 +9,190 @@
 # Copying /home/amparo/intelFPGA_lite/20.1/modelsim_ase/linuxaloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # 
-# vlog -sv -work work +incdir+/home/amparo/ArquiComputadoras/Practico1 {/home/amparo/ArquiComputadoras/Practico1/flopr.sv}
+# vlog -sv -work work +incdir+/home/amparo/Escritorio/ArquiComputadoras/Practico1 {/home/amparo/Escritorio/ArquiComputadoras/Practico1/flopr.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 12:02:23 on Sep 17,2022
-# vlog -reportprogress 300 -sv -work work "+incdir+/home/amparo/ArquiComputadoras/Practico1" /home/amparo/ArquiComputadoras/Practico1/flopr.sv 
+# Start time: 13:20:05 on Sep 19,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+/home/amparo/Escritorio/ArquiComputadoras/Practico1" /home/amparo/Escritorio/ArquiComputadoras/Practico1/flopr.sv 
 # -- Compiling module flopr
 # 
 # Top level modules:
 # 	flopr
-# End time: 12:02:23 on Sep 17,2022, Elapsed time: 0:00:00
+# End time: 13:20:05 on Sep 19,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+/home/amparo/ArquiComputadoras/Practico1 {/home/amparo/ArquiComputadoras/Practico1/fetch.sv}
+# vlog -sv -work work +incdir+/home/amparo/Escritorio/ArquiComputadoras/Practico1 {/home/amparo/Escritorio/ArquiComputadoras/Practico1/fetch.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 12:02:23 on Sep 17,2022
-# vlog -reportprogress 300 -sv -work work "+incdir+/home/amparo/ArquiComputadoras/Practico1" /home/amparo/ArquiComputadoras/Practico1/fetch.sv 
+# Start time: 13:20:06 on Sep 19,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+/home/amparo/Escritorio/ArquiComputadoras/Practico1" /home/amparo/Escritorio/ArquiComputadoras/Practico1/fetch.sv 
 # -- Compiling module fetch
 # 
 # Top level modules:
 # 	fetch
-# End time: 12:02:23 on Sep 17,2022, Elapsed time: 0:00:00
+# End time: 13:20:06 on Sep 19,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+/home/amparo/ArquiComputadoras/Practico1 {/home/amparo/ArquiComputadoras/Practico1/execute.sv}
+# vlog -sv -work work +incdir+/home/amparo/Escritorio/ArquiComputadoras/Practico1 {/home/amparo/Escritorio/ArquiComputadoras/Practico1/execute.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 12:02:23 on Sep 17,2022
-# vlog -reportprogress 300 -sv -work work "+incdir+/home/amparo/ArquiComputadoras/Practico1" /home/amparo/ArquiComputadoras/Practico1/execute.sv 
+# Start time: 13:20:06 on Sep 19,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+/home/amparo/Escritorio/ArquiComputadoras/Practico1" /home/amparo/Escritorio/ArquiComputadoras/Practico1/execute.sv 
 # -- Compiling module execute
 # 
 # Top level modules:
 # 	execute
-# End time: 12:02:23 on Sep 17,2022, Elapsed time: 0:00:00
+# End time: 13:20:06 on Sep 19,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+/home/amparo/ArquiComputadoras/Practico1 {/home/amparo/ArquiComputadoras/Practico1/alu.sv}
+# vlog -sv -work work +incdir+/home/amparo/Escritorio/ArquiComputadoras/Practico1 {/home/amparo/Escritorio/ArquiComputadoras/Practico1/alu.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 12:02:23 on Sep 17,2022
-# vlog -reportprogress 300 -sv -work work "+incdir+/home/amparo/ArquiComputadoras/Practico1" /home/amparo/ArquiComputadoras/Practico1/alu.sv 
+# Start time: 13:20:06 on Sep 19,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+/home/amparo/Escritorio/ArquiComputadoras/Practico1" /home/amparo/Escritorio/ArquiComputadoras/Practico1/alu.sv 
 # -- Compiling module alu
 # 
 # Top level modules:
 # 	alu
-# End time: 12:02:23 on Sep 17,2022, Elapsed time: 0:00:00
+# End time: 13:20:06 on Sep 19,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+/home/amparo/ArquiComputadoras/Practico1 {/home/amparo/ArquiComputadoras/Practico1/adder.sv}
+# vlog -sv -work work +incdir+/home/amparo/Escritorio/ArquiComputadoras/Practico1 {/home/amparo/Escritorio/ArquiComputadoras/Practico1/adder.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 12:02:23 on Sep 17,2022
-# vlog -reportprogress 300 -sv -work work "+incdir+/home/amparo/ArquiComputadoras/Practico1" /home/amparo/ArquiComputadoras/Practico1/adder.sv 
+# Start time: 13:20:06 on Sep 19,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+/home/amparo/Escritorio/ArquiComputadoras/Practico1" /home/amparo/Escritorio/ArquiComputadoras/Practico1/adder.sv 
 # -- Compiling module adder
 # 
 # Top level modules:
 # 	adder
-# End time: 12:02:23 on Sep 17,2022, Elapsed time: 0:00:00
+# End time: 13:20:06 on Sep 19,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+/home/amparo/ArquiComputadoras/Practico1 {/home/amparo/ArquiComputadoras/Practico1/sl2.sv}
+# vlog -sv -work work +incdir+/home/amparo/Escritorio/ArquiComputadoras/Practico1 {/home/amparo/Escritorio/ArquiComputadoras/Practico1/sl2.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 12:02:23 on Sep 17,2022
-# vlog -reportprogress 300 -sv -work work "+incdir+/home/amparo/ArquiComputadoras/Practico1" /home/amparo/ArquiComputadoras/Practico1/sl2.sv 
+# Start time: 13:20:06 on Sep 19,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+/home/amparo/Escritorio/ArquiComputadoras/Practico1" /home/amparo/Escritorio/ArquiComputadoras/Practico1/sl2.sv 
 # -- Compiling module sl2
 # 
 # Top level modules:
 # 	sl2
-# End time: 12:02:24 on Sep 17,2022, Elapsed time: 0:00:01
+# End time: 13:20:06 on Sep 19,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+/home/amparo/ArquiComputadoras/Practico1 {/home/amparo/ArquiComputadoras/Practico1/signext.sv}
+# vlog -sv -work work +incdir+/home/amparo/Escritorio/ArquiComputadoras/Practico1 {/home/amparo/Escritorio/ArquiComputadoras/Practico1/signext.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 12:02:24 on Sep 17,2022
-# vlog -reportprogress 300 -sv -work work "+incdir+/home/amparo/ArquiComputadoras/Practico1" /home/amparo/ArquiComputadoras/Practico1/signext.sv 
+# Start time: 13:20:06 on Sep 19,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+/home/amparo/Escritorio/ArquiComputadoras/Practico1" /home/amparo/Escritorio/ArquiComputadoras/Practico1/signext.sv 
 # -- Compiling module signext
 # 
 # Top level modules:
 # 	signext
-# End time: 12:02:24 on Sep 17,2022, Elapsed time: 0:00:00
+# End time: 13:20:06 on Sep 19,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+/home/amparo/ArquiComputadoras/Practico1 {/home/amparo/ArquiComputadoras/Practico1/regfile.sv}
+# vlog -sv -work work +incdir+/home/amparo/Escritorio/ArquiComputadoras/Practico1 {/home/amparo/Escritorio/ArquiComputadoras/Practico1/regfile.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 12:02:24 on Sep 17,2022
-# vlog -reportprogress 300 -sv -work work "+incdir+/home/amparo/ArquiComputadoras/Practico1" /home/amparo/ArquiComputadoras/Practico1/regfile.sv 
+# Start time: 13:20:06 on Sep 19,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+/home/amparo/Escritorio/ArquiComputadoras/Practico1" /home/amparo/Escritorio/ArquiComputadoras/Practico1/regfile.sv 
 # -- Compiling module regfile
 # 
 # Top level modules:
 # 	regfile
-# End time: 12:02:24 on Sep 17,2022, Elapsed time: 0:00:00
+# End time: 13:20:06 on Sep 19,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+/home/amparo/ArquiComputadoras/Practico1 {/home/amparo/ArquiComputadoras/Practico1/mux2.sv}
+# vlog -sv -work work +incdir+/home/amparo/Escritorio/ArquiComputadoras/Practico1 {/home/amparo/Escritorio/ArquiComputadoras/Practico1/mux2.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 12:02:24 on Sep 17,2022
-# vlog -reportprogress 300 -sv -work work "+incdir+/home/amparo/ArquiComputadoras/Practico1" /home/amparo/ArquiComputadoras/Practico1/mux2.sv 
+# Start time: 13:20:06 on Sep 19,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+/home/amparo/Escritorio/ArquiComputadoras/Practico1" /home/amparo/Escritorio/ArquiComputadoras/Practico1/mux2.sv 
 # -- Compiling module mux2
 # 
 # Top level modules:
 # 	mux2
-# End time: 12:02:24 on Sep 17,2022, Elapsed time: 0:00:00
+# End time: 13:20:06 on Sep 19,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+/home/amparo/ArquiComputadoras/Practico1 {/home/amparo/ArquiComputadoras/Practico1/maindec.sv}
+# vlog -sv -work work +incdir+/home/amparo/Escritorio/ArquiComputadoras/Practico1 {/home/amparo/Escritorio/ArquiComputadoras/Practico1/maindec.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 12:02:24 on Sep 17,2022
-# vlog -reportprogress 300 -sv -work work "+incdir+/home/amparo/ArquiComputadoras/Practico1" /home/amparo/ArquiComputadoras/Practico1/maindec.sv 
+# Start time: 13:20:06 on Sep 19,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+/home/amparo/Escritorio/ArquiComputadoras/Practico1" /home/amparo/Escritorio/ArquiComputadoras/Practico1/maindec.sv 
 # -- Compiling module maindec
 # 
 # Top level modules:
 # 	maindec
-# End time: 12:02:24 on Sep 17,2022, Elapsed time: 0:00:00
+# End time: 13:20:06 on Sep 19,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+/home/amparo/ArquiComputadoras/Practico1 {/home/amparo/ArquiComputadoras/Practico1/imem.sv}
+# vlog -sv -work work +incdir+/home/amparo/Escritorio/ArquiComputadoras/Practico1 {/home/amparo/Escritorio/ArquiComputadoras/Practico1/imem.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 12:02:24 on Sep 17,2022
-# vlog -reportprogress 300 -sv -work work "+incdir+/home/amparo/ArquiComputadoras/Practico1" /home/amparo/ArquiComputadoras/Practico1/imem.sv 
+# Start time: 13:20:07 on Sep 19,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+/home/amparo/Escritorio/ArquiComputadoras/Practico1" /home/amparo/Escritorio/ArquiComputadoras/Practico1/imem.sv 
 # -- Compiling module imem
 # 
 # Top level modules:
 # 	imem
-# End time: 12:02:24 on Sep 17,2022, Elapsed time: 0:00:00
+# End time: 13:20:07 on Sep 19,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+/home/amparo/ArquiComputadoras/Practico2 {/home/amparo/ArquiComputadoras/Practico2/writeback.sv}
+# vlog -sv -work work +incdir+/home/amparo/Escritorio/ArquiComputadoras/Practico2 {/home/amparo/Escritorio/ArquiComputadoras/Practico2/writeback.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 12:02:24 on Sep 17,2022
-# vlog -reportprogress 300 -sv -work work "+incdir+/home/amparo/ArquiComputadoras/Practico2" /home/amparo/ArquiComputadoras/Practico2/writeback.sv 
+# Start time: 13:20:07 on Sep 19,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+/home/amparo/Escritorio/ArquiComputadoras/Practico2" /home/amparo/Escritorio/ArquiComputadoras/Practico2/writeback.sv 
 # -- Compiling module writeback
 # 
 # Top level modules:
 # 	writeback
-# End time: 12:02:24 on Sep 17,2022, Elapsed time: 0:00:00
+# End time: 13:20:07 on Sep 19,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+/home/amparo/ArquiComputadoras/Practico2 {/home/amparo/ArquiComputadoras/Practico2/processor_arm.sv}
+# vlog -sv -work work +incdir+/home/amparo/Escritorio/ArquiComputadoras/Practico2 {/home/amparo/Escritorio/ArquiComputadoras/Practico2/processor_arm.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 12:02:24 on Sep 17,2022
-# vlog -reportprogress 300 -sv -work work "+incdir+/home/amparo/ArquiComputadoras/Practico2" /home/amparo/ArquiComputadoras/Practico2/processor_arm.sv 
+# Start time: 13:20:07 on Sep 19,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+/home/amparo/Escritorio/ArquiComputadoras/Practico2" /home/amparo/Escritorio/ArquiComputadoras/Practico2/processor_arm.sv 
 # -- Compiling module processor_arm
 # 
 # Top level modules:
 # 	processor_arm
-# End time: 12:02:24 on Sep 17,2022, Elapsed time: 0:00:00
+# End time: 13:20:07 on Sep 19,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+/home/amparo/ArquiComputadoras/Practico2 {/home/amparo/ArquiComputadoras/Practico2/memory.sv}
+# vlog -sv -work work +incdir+/home/amparo/Escritorio/ArquiComputadoras/Practico2 {/home/amparo/Escritorio/ArquiComputadoras/Practico2/memory.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 12:02:25 on Sep 17,2022
-# vlog -reportprogress 300 -sv -work work "+incdir+/home/amparo/ArquiComputadoras/Practico2" /home/amparo/ArquiComputadoras/Practico2/memory.sv 
+# Start time: 13:20:07 on Sep 19,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+/home/amparo/Escritorio/ArquiComputadoras/Practico2" /home/amparo/Escritorio/ArquiComputadoras/Practico2/memory.sv 
 # -- Compiling module memory
 # 
 # Top level modules:
 # 	memory
-# End time: 12:02:25 on Sep 17,2022, Elapsed time: 0:00:00
+# End time: 13:20:07 on Sep 19,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+/home/amparo/ArquiComputadoras/Practico2 {/home/amparo/ArquiComputadoras/Practico2/decode.sv}
+# vlog -sv -work work +incdir+/home/amparo/Escritorio/ArquiComputadoras/Practico2 {/home/amparo/Escritorio/ArquiComputadoras/Practico2/decode.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 12:02:25 on Sep 17,2022
-# vlog -reportprogress 300 -sv -work work "+incdir+/home/amparo/ArquiComputadoras/Practico2" /home/amparo/ArquiComputadoras/Practico2/decode.sv 
+# Start time: 13:20:07 on Sep 19,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+/home/amparo/Escritorio/ArquiComputadoras/Practico2" /home/amparo/Escritorio/ArquiComputadoras/Practico2/decode.sv 
 # -- Compiling module decode
 # 
 # Top level modules:
 # 	decode
-# End time: 12:02:25 on Sep 17,2022, Elapsed time: 0:00:00
+# End time: 13:20:07 on Sep 19,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+/home/amparo/ArquiComputadoras/Practico2 {/home/amparo/ArquiComputadoras/Practico2/datapath.sv}
+# vlog -sv -work work +incdir+/home/amparo/Escritorio/ArquiComputadoras/Practico2 {/home/amparo/Escritorio/ArquiComputadoras/Practico2/datapath.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 12:02:25 on Sep 17,2022
-# vlog -reportprogress 300 -sv -work work "+incdir+/home/amparo/ArquiComputadoras/Practico2" /home/amparo/ArquiComputadoras/Practico2/datapath.sv 
+# Start time: 13:20:07 on Sep 19,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+/home/amparo/Escritorio/ArquiComputadoras/Practico2" /home/amparo/Escritorio/ArquiComputadoras/Practico2/datapath.sv 
 # -- Compiling module datapath
 # 
 # Top level modules:
 # 	datapath
-# End time: 12:02:25 on Sep 17,2022, Elapsed time: 0:00:00
+# End time: 13:20:07 on Sep 19,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+/home/amparo/ArquiComputadoras/Practico2 {/home/amparo/ArquiComputadoras/Practico2/controller.sv}
+# vlog -sv -work work +incdir+/home/amparo/Escritorio/ArquiComputadoras/Practico2 {/home/amparo/Escritorio/ArquiComputadoras/Practico2/controller.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 12:02:25 on Sep 17,2022
-# vlog -reportprogress 300 -sv -work work "+incdir+/home/amparo/ArquiComputadoras/Practico2" /home/amparo/ArquiComputadoras/Practico2/controller.sv 
+# Start time: 13:20:07 on Sep 19,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+/home/amparo/Escritorio/ArquiComputadoras/Practico2" /home/amparo/Escritorio/ArquiComputadoras/Practico2/controller.sv 
 # -- Compiling module controller
 # 
 # Top level modules:
 # 	controller
-# End time: 12:02:25 on Sep 17,2022, Elapsed time: 0:00:00
+# End time: 13:20:07 on Sep 19,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+/home/amparo/ArquiComputadoras/Practico2 {/home/amparo/ArquiComputadoras/Practico2/aludec.sv}
+# vlog -sv -work work +incdir+/home/amparo/Escritorio/ArquiComputadoras/Practico2 {/home/amparo/Escritorio/ArquiComputadoras/Practico2/aludec.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 12:02:25 on Sep 17,2022
-# vlog -reportprogress 300 -sv -work work "+incdir+/home/amparo/ArquiComputadoras/Practico2" /home/amparo/ArquiComputadoras/Practico2/aludec.sv 
+# Start time: 13:20:07 on Sep 19,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+/home/amparo/Escritorio/ArquiComputadoras/Practico2" /home/amparo/Escritorio/ArquiComputadoras/Practico2/aludec.sv 
 # -- Compiling module aludec
 # 
 # Top level modules:
 # 	aludec
-# End time: 12:02:25 on Sep 17,2022, Elapsed time: 0:00:00
+# End time: 13:20:08 on Sep 19,2022, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
-# vcom -93 -work work {/home/amparo/ArquiComputadoras/Practico2/dmem.vhd}
+# vcom -93 -work work {/home/amparo/Escritorio/ArquiComputadoras/Practico2/dmem.vhd}
 # Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 12:02:25 on Sep 17,2022
-# vcom -reportprogress 300 -93 -work work /home/amparo/ArquiComputadoras/Practico2/dmem.vhd 
+# Start time: 13:20:08 on Sep 19,2022
+# vcom -reportprogress 300 -93 -work work /home/amparo/Escritorio/ArquiComputadoras/Practico2/dmem.vhd 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
@@ -201,24 +201,24 @@
 # -- Loading package NUMERIC_STD
 # -- Compiling entity dmem
 # -- Compiling architecture behave of dmem
-# ** Warning: /home/amparo/ArquiComputadoras/Practico2/dmem.vhd(30): (vcom-1194) FILE declaration was written using VHDL 1987 syntax.
-# End time: 12:02:25 on Sep 17,2022, Elapsed time: 0:00:00
+# ** Warning: /home/amparo/Escritorio/ArquiComputadoras/Practico2/dmem.vhd(30): (vcom-1194) FILE declaration was written using VHDL 1987 syntax.
+# End time: 13:20:08 on Sep 19,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 1
 # 
-# vlog -sv -work work +incdir+/home/amparo/ArquiComputadoras/Practico2 {/home/amparo/ArquiComputadoras/Practico2/processor_tb.sv}
+# vlog -sv -work work +incdir+/home/amparo/Escritorio/ArquiComputadoras/Practico2 {/home/amparo/Escritorio/ArquiComputadoras/Practico2/processor_tb.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
-# Start time: 12:02:25 on Sep 17,2022
-# vlog -reportprogress 300 -sv -work work "+incdir+/home/amparo/ArquiComputadoras/Practico2" /home/amparo/ArquiComputadoras/Practico2/processor_tb.sv 
+# Start time: 13:20:08 on Sep 19,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+/home/amparo/Escritorio/ArquiComputadoras/Practico2" /home/amparo/Escritorio/ArquiComputadoras/Practico2/processor_tb.sv 
 # -- Compiling module processor_tb
 # 
 # Top level modules:
 # 	processor_tb
-# End time: 12:02:25 on Sep 17,2022, Elapsed time: 0:00:00
+# End time: 13:20:08 on Sep 19,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc"  processor_tb
 # vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=""+acc"" processor_tb 
-# Start time: 12:02:25 on Sep 17,2022
+# Start time: 13:20:08 on Sep 19,2022
 # Loading sv_std.std
 # Loading work.processor_tb
 # Loading work.processor_arm
@@ -255,9 +255,9 @@
 # run -all
 # ** Note: fin del testdump
 #    Time: 5020 ps  Iteration: 1  Instance: /processor_tb/dut/dataMem
-# ** Note: $stop    : /home/amparo/ArquiComputadoras/Practico2/processor_tb.sv(26)
+# ** Note: $stop    : /home/amparo/Escritorio/ArquiComputadoras/Practico2/processor_tb.sv(26)
 #    Time: 5040 ps  Iteration: 0  Instance: /processor_tb
-# Break in Module processor_tb at /home/amparo/ArquiComputadoras/Practico2/processor_tb.sv line 26
+# Break in Module processor_tb at /home/amparo/Escritorio/ArquiComputadoras/Practico2/processor_tb.sv line 26
 # couldn't load file "/home/amparo/intelFPGA_lite/20.1/modelsim_ase/linuxaloem/ScintillaTk/libScintillaTk1.14.so": libstdc++.so.6: wrong ELF class: ELFCLASS64
 # ** Error: list element in quotes followed by ":" instead of space
 # Error in macro ./PART2_SingleCycleProcessor_run_msim_rtl_systemverilog.do line 35
@@ -273,5 +273,5 @@
 #     (procedure "run" line 107)
 #     invoked from within
 # "run -all"
-# End time: 12:03:19 on Sep 17,2022, Elapsed time: 0:00:54
+# End time: 13:39:29 on Sep 19,2022, Elapsed time: 0:19:21
 # Errors: 1, Warnings: 0

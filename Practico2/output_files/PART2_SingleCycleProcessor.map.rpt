@@ -1,5 +1,5 @@
 Analysis & Synthesis report for PART2_SingleCycleProcessor
-Sat Sep 17 12:01:57 2022
+Mon Sep 19 13:14:55 2022
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -34,6 +34,7 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
  26. Post-Synthesis Netlist Statistics for Top Partition
  27. Elapsed Time Per Partition
  28. Analysis & Synthesis Messages
+ 29. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -60,7 +61,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Sep 17 12:01:54 2022       ;
+; Analysis & Synthesis Status        ; Successful - Mon Sep 19 13:14:55 2022       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; PART2_SingleCycleProcessor                  ;
 ; Top-level Entity Name              ; processor_arm                               ;
@@ -176,35 +177,35 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.3%      ;
+;     Processor 2            ;   0.4%      ;
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                  ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                              ; Library ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------+---------+
-; ../Practico1/flopr.sv            ; yes             ; User SystemVerilog HDL File  ; /home/amparo/ArquiComputadoras/Practico1/flopr.sv         ;         ;
-; ../Practico1/fetch.sv            ; yes             ; User SystemVerilog HDL File  ; /home/amparo/ArquiComputadoras/Practico1/fetch.sv         ;         ;
-; ../Practico1/execute.sv          ; yes             ; User SystemVerilog HDL File  ; /home/amparo/ArquiComputadoras/Practico1/execute.sv       ;         ;
-; ../Practico1/alu.sv              ; yes             ; User SystemVerilog HDL File  ; /home/amparo/ArquiComputadoras/Practico1/alu.sv           ;         ;
-; ../Practico1/adder.sv            ; yes             ; User SystemVerilog HDL File  ; /home/amparo/ArquiComputadoras/Practico1/adder.sv         ;         ;
-; ../Practico1/sl2.sv              ; yes             ; User SystemVerilog HDL File  ; /home/amparo/ArquiComputadoras/Practico1/sl2.sv           ;         ;
-; ../Practico1/signext.sv          ; yes             ; User SystemVerilog HDL File  ; /home/amparo/ArquiComputadoras/Practico1/signext.sv       ;         ;
-; ../Practico1/regfile.sv          ; yes             ; User SystemVerilog HDL File  ; /home/amparo/ArquiComputadoras/Practico1/regfile.sv       ;         ;
-; ../Practico1/mux2.sv             ; yes             ; User SystemVerilog HDL File  ; /home/amparo/ArquiComputadoras/Practico1/mux2.sv          ;         ;
-; ../Practico1/maindec.sv          ; yes             ; User SystemVerilog HDL File  ; /home/amparo/ArquiComputadoras/Practico1/maindec.sv       ;         ;
-; ../Practico1/imem.sv             ; yes             ; User SystemVerilog HDL File  ; /home/amparo/ArquiComputadoras/Practico1/imem.sv          ;         ;
-; writeback.sv                     ; yes             ; User SystemVerilog HDL File  ; /home/amparo/ArquiComputadoras/Practico2/writeback.sv     ;         ;
-; processor_arm.sv                 ; yes             ; User SystemVerilog HDL File  ; /home/amparo/ArquiComputadoras/Practico2/processor_arm.sv ;         ;
-; memory.sv                        ; yes             ; User SystemVerilog HDL File  ; /home/amparo/ArquiComputadoras/Practico2/memory.sv        ;         ;
-; dmem.vhd                         ; yes             ; User VHDL File               ; /home/amparo/ArquiComputadoras/Practico2/dmem.vhd         ;         ;
-; decode.sv                        ; yes             ; User SystemVerilog HDL File  ; /home/amparo/ArquiComputadoras/Practico2/decode.sv        ;         ;
-; datapath.sv                      ; yes             ; User SystemVerilog HDL File  ; /home/amparo/ArquiComputadoras/Practico2/datapath.sv      ;         ;
-; controller.sv                    ; yes             ; User SystemVerilog HDL File  ; /home/amparo/ArquiComputadoras/Practico2/controller.sv    ;         ;
-; aludec.sv                        ; yes             ; User SystemVerilog HDL File  ; /home/amparo/ArquiComputadoras/Practico2/aludec.sv        ;         ;
-+----------------------------------+-----------------+------------------------------+-----------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                             ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                         ; Library ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------+---------+
+; ../Practico1/flopr.sv            ; yes             ; User SystemVerilog HDL File  ; /home/amparo/Escritorio/ArquiComputadoras/Practico1/flopr.sv         ;         ;
+; ../Practico1/fetch.sv            ; yes             ; User SystemVerilog HDL File  ; /home/amparo/Escritorio/ArquiComputadoras/Practico1/fetch.sv         ;         ;
+; ../Practico1/execute.sv          ; yes             ; User SystemVerilog HDL File  ; /home/amparo/Escritorio/ArquiComputadoras/Practico1/execute.sv       ;         ;
+; ../Practico1/alu.sv              ; yes             ; User SystemVerilog HDL File  ; /home/amparo/Escritorio/ArquiComputadoras/Practico1/alu.sv           ;         ;
+; ../Practico1/adder.sv            ; yes             ; User SystemVerilog HDL File  ; /home/amparo/Escritorio/ArquiComputadoras/Practico1/adder.sv         ;         ;
+; ../Practico1/sl2.sv              ; yes             ; User SystemVerilog HDL File  ; /home/amparo/Escritorio/ArquiComputadoras/Practico1/sl2.sv           ;         ;
+; ../Practico1/signext.sv          ; yes             ; User SystemVerilog HDL File  ; /home/amparo/Escritorio/ArquiComputadoras/Practico1/signext.sv       ;         ;
+; ../Practico1/regfile.sv          ; yes             ; User SystemVerilog HDL File  ; /home/amparo/Escritorio/ArquiComputadoras/Practico1/regfile.sv       ;         ;
+; ../Practico1/mux2.sv             ; yes             ; User SystemVerilog HDL File  ; /home/amparo/Escritorio/ArquiComputadoras/Practico1/mux2.sv          ;         ;
+; ../Practico1/maindec.sv          ; yes             ; User SystemVerilog HDL File  ; /home/amparo/Escritorio/ArquiComputadoras/Practico1/maindec.sv       ;         ;
+; ../Practico1/imem.sv             ; yes             ; User SystemVerilog HDL File  ; /home/amparo/Escritorio/ArquiComputadoras/Practico1/imem.sv          ;         ;
+; writeback.sv                     ; yes             ; User SystemVerilog HDL File  ; /home/amparo/Escritorio/ArquiComputadoras/Practico2/writeback.sv     ;         ;
+; processor_arm.sv                 ; yes             ; User SystemVerilog HDL File  ; /home/amparo/Escritorio/ArquiComputadoras/Practico2/processor_arm.sv ;         ;
+; memory.sv                        ; yes             ; User SystemVerilog HDL File  ; /home/amparo/Escritorio/ArquiComputadoras/Practico2/memory.sv        ;         ;
+; dmem.vhd                         ; yes             ; User VHDL File               ; /home/amparo/Escritorio/ArquiComputadoras/Practico2/dmem.vhd         ;         ;
+; decode.sv                        ; yes             ; User SystemVerilog HDL File  ; /home/amparo/Escritorio/ArquiComputadoras/Practico2/decode.sv        ;         ;
+; datapath.sv                      ; yes             ; User SystemVerilog HDL File  ; /home/amparo/Escritorio/ArquiComputadoras/Practico2/datapath.sv      ;         ;
+; controller.sv                    ; yes             ; User SystemVerilog HDL File  ; /home/amparo/Escritorio/ArquiComputadoras/Practico2/controller.sv    ;         ;
+; aludec.sv                        ; yes             ; User SystemVerilog HDL File  ; /home/amparo/Escritorio/ArquiComputadoras/Practico2/aludec.sv        ;         ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------+---------+
 
 
 +--------------------------------------------------------------+
@@ -484,7 +485,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:04:06     ;
+; Top            ; 00:01:51     ;
 +----------------+--------------+
 
 
@@ -494,102 +495,109 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Sat Sep 17 11:56:44 2022
+    Info: Processing started: Mon Sep 19 13:12:18 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off PART2_SingleCycleProcessor -c PART2_SingleCycleProcessor
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
-Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/ArquiComputadoras/Practico1/flopr.sv
-    Info (12023): Found entity 1: flopr File: /home/amparo/ArquiComputadoras/Practico1/flopr.sv Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/ArquiComputadoras/Practico1/fetch.sv
-    Info (12023): Found entity 1: fetch File: /home/amparo/ArquiComputadoras/Practico1/fetch.sv Line: 2
-Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/ArquiComputadoras/Practico1/execute.sv
-    Info (12023): Found entity 1: execute File: /home/amparo/ArquiComputadoras/Practico1/execute.sv Line: 3
-Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/ArquiComputadoras/Practico1/alu_tb.sv
-    Info (12023): Found entity 1: alu_tb File: /home/amparo/ArquiComputadoras/Practico1/alu_tb.sv Line: 3
-Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/ArquiComputadoras/Practico1/alu.sv
-    Info (12023): Found entity 1: alu File: /home/amparo/ArquiComputadoras/Practico1/alu.sv Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/ArquiComputadoras/Practico1/adder.sv
-    Info (12023): Found entity 1: adder File: /home/amparo/ArquiComputadoras/Practico1/adder.sv Line: 3
-Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/ArquiComputadoras/Practico1/sl2.sv
-    Info (12023): Found entity 1: sl2 File: /home/amparo/ArquiComputadoras/Practico1/sl2.sv Line: 3
-Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/ArquiComputadoras/Practico1/signext_tb.sv
-    Info (12023): Found entity 1: signext_tb File: /home/amparo/ArquiComputadoras/Practico1/signext_tb.sv Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/ArquiComputadoras/Practico1/signext.sv
-    Info (12023): Found entity 1: signext File: /home/amparo/ArquiComputadoras/Practico1/signext.sv Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/ArquiComputadoras/Practico1/regfile_tb.sv
-    Info (12023): Found entity 1: regfile_tb File: /home/amparo/ArquiComputadoras/Practico1/regfile_tb.sv Line: 3
-Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/ArquiComputadoras/Practico1/regfile.sv
-    Info (12023): Found entity 1: regfile File: /home/amparo/ArquiComputadoras/Practico1/regfile.sv Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/ArquiComputadoras/Practico1/mux2.sv
-    Info (12023): Found entity 1: mux2 File: /home/amparo/ArquiComputadoras/Practico1/mux2.sv Line: 3
-Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/ArquiComputadoras/Practico1/maindec_tb.sv
-    Info (12023): Found entity 1: maindec_tb File: /home/amparo/ArquiComputadoras/Practico1/maindec_tb.sv Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/ArquiComputadoras/Practico1/maindec.sv
-    Info (12023): Found entity 1: maindec File: /home/amparo/ArquiComputadoras/Practico1/maindec.sv Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/ArquiComputadoras/Practico1/imem_tb.sv
-    Info (12023): Found entity 1: imem_tb File: /home/amparo/ArquiComputadoras/Practico1/imem_tb.sv Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/ArquiComputadoras/Practico1/imem.sv
-    Info (12023): Found entity 1: imem File: /home/amparo/ArquiComputadoras/Practico1/imem.sv Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/ArquiComputadoras/Practico1/flopr_tb.sv
-    Info (12023): Found entity 1: flopr_tb File: /home/amparo/ArquiComputadoras/Practico1/flopr_tb.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/Escritorio/ArquiComputadoras/Practico1/flopr.sv
+    Info (12023): Found entity 1: flopr File: /home/amparo/Escritorio/ArquiComputadoras/Practico1/flopr.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/Escritorio/ArquiComputadoras/Practico1/fetch.sv
+    Info (12023): Found entity 1: fetch File: /home/amparo/Escritorio/ArquiComputadoras/Practico1/fetch.sv Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/Escritorio/ArquiComputadoras/Practico1/execute.sv
+    Info (12023): Found entity 1: execute File: /home/amparo/Escritorio/ArquiComputadoras/Practico1/execute.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/Escritorio/ArquiComputadoras/Practico1/alu_tb.sv
+    Info (12023): Found entity 1: alu_tb File: /home/amparo/Escritorio/ArquiComputadoras/Practico1/alu_tb.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/Escritorio/ArquiComputadoras/Practico1/alu.sv
+    Info (12023): Found entity 1: alu File: /home/amparo/Escritorio/ArquiComputadoras/Practico1/alu.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/Escritorio/ArquiComputadoras/Practico1/adder.sv
+    Info (12023): Found entity 1: adder File: /home/amparo/Escritorio/ArquiComputadoras/Practico1/adder.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/Escritorio/ArquiComputadoras/Practico1/sl2.sv
+    Info (12023): Found entity 1: sl2 File: /home/amparo/Escritorio/ArquiComputadoras/Practico1/sl2.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/Escritorio/ArquiComputadoras/Practico1/signext_tb.sv
+    Info (12023): Found entity 1: signext_tb File: /home/amparo/Escritorio/ArquiComputadoras/Practico1/signext_tb.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/Escritorio/ArquiComputadoras/Practico1/signext.sv
+    Info (12023): Found entity 1: signext File: /home/amparo/Escritorio/ArquiComputadoras/Practico1/signext.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/Escritorio/ArquiComputadoras/Practico1/regfile_tb.sv
+    Info (12023): Found entity 1: regfile_tb File: /home/amparo/Escritorio/ArquiComputadoras/Practico1/regfile_tb.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/Escritorio/ArquiComputadoras/Practico1/regfile.sv
+    Info (12023): Found entity 1: regfile File: /home/amparo/Escritorio/ArquiComputadoras/Practico1/regfile.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/Escritorio/ArquiComputadoras/Practico1/mux2.sv
+    Info (12023): Found entity 1: mux2 File: /home/amparo/Escritorio/ArquiComputadoras/Practico1/mux2.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/Escritorio/ArquiComputadoras/Practico1/maindec_tb.sv
+    Info (12023): Found entity 1: maindec_tb File: /home/amparo/Escritorio/ArquiComputadoras/Practico1/maindec_tb.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/Escritorio/ArquiComputadoras/Practico1/maindec.sv
+    Info (12023): Found entity 1: maindec File: /home/amparo/Escritorio/ArquiComputadoras/Practico1/maindec.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/Escritorio/ArquiComputadoras/Practico1/imem_tb.sv
+    Info (12023): Found entity 1: imem_tb File: /home/amparo/Escritorio/ArquiComputadoras/Practico1/imem_tb.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/Escritorio/ArquiComputadoras/Practico1/imem.sv
+    Info (12023): Found entity 1: imem File: /home/amparo/Escritorio/ArquiComputadoras/Practico1/imem.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/Escritorio/ArquiComputadoras/Practico1/flopr_tb.sv
+    Info (12023): Found entity 1: flopr_tb File: /home/amparo/Escritorio/ArquiComputadoras/Practico1/flopr_tb.sv Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file writeback.sv
-    Info (12023): Found entity 1: writeback File: /home/amparo/ArquiComputadoras/Practico2/writeback.sv Line: 3
+    Info (12023): Found entity 1: writeback File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/writeback.sv Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file processor_tb.sv
-    Info (12023): Found entity 1: processor_tb File: /home/amparo/ArquiComputadoras/Practico2/processor_tb.sv Line: 4
+    Info (12023): Found entity 1: processor_tb File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/processor_tb.sv Line: 4
 Info (12021): Found 1 design units, including 1 entities, in source file processor_arm.sv
-    Info (12023): Found entity 1: processor_arm File: /home/amparo/ArquiComputadoras/Practico2/processor_arm.sv Line: 3
+    Info (12023): Found entity 1: processor_arm File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/processor_arm.sv Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file memory.sv
-    Info (12023): Found entity 1: memory File: /home/amparo/ArquiComputadoras/Practico2/memory.sv Line: 3
+    Info (12023): Found entity 1: memory File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/memory.sv Line: 3
 Info (12021): Found 2 design units, including 1 entities, in source file dmem.vhd
-    Info (12022): Found design unit 1: dmem-behave File: /home/amparo/ArquiComputadoras/Practico2/dmem.vhd Line: 21
-    Info (12023): Found entity 1: dmem File: /home/amparo/ArquiComputadoras/Practico2/dmem.vhd Line: 12
+    Info (12022): Found design unit 1: dmem-behave File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/dmem.vhd Line: 21
+    Info (12023): Found entity 1: dmem File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/dmem.vhd Line: 12
 Info (12021): Found 1 design units, including 1 entities, in source file decode.sv
-    Info (12023): Found entity 1: decode File: /home/amparo/ArquiComputadoras/Practico2/decode.sv Line: 3
+    Info (12023): Found entity 1: decode File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/decode.sv Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file datapath.sv
-    Info (12023): Found entity 1: datapath File: /home/amparo/ArquiComputadoras/Practico2/datapath.sv Line: 3
+    Info (12023): Found entity 1: datapath File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/datapath.sv Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file controller.sv
-    Info (12023): Found entity 1: controller File: /home/amparo/ArquiComputadoras/Practico2/controller.sv Line: 3
+    Info (12023): Found entity 1: controller File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/controller.sv Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file aludec.sv
-    Info (12023): Found entity 1: aludec File: /home/amparo/ArquiComputadoras/Practico2/aludec.sv Line: 3
+    Info (12023): Found entity 1: aludec File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/aludec.sv Line: 3
 Info (12127): Elaborating entity "processor_arm" for the top level hierarchy
-Info (12128): Elaborating entity "controller" for hierarchy "controller:c" File: /home/amparo/ArquiComputadoras/Practico2/processor_arm.sv Line: 23
-Info (12128): Elaborating entity "maindec" for hierarchy "controller:c|maindec:decPpal" File: /home/amparo/ArquiComputadoras/Practico2/controller.sv Line: 18
-Info (12128): Elaborating entity "aludec" for hierarchy "controller:c|aludec:decAlu" File: /home/amparo/ArquiComputadoras/Practico2/controller.sv Line: 23
-Info (12128): Elaborating entity "datapath" for hierarchy "datapath:dp" File: /home/amparo/ArquiComputadoras/Practico2/processor_arm.sv Line: 42
-Info (12128): Elaborating entity "fetch" for hierarchy "datapath:dp|fetch:FETCH" File: /home/amparo/ArquiComputadoras/Practico2/datapath.sv Line: 28
-Info (12128): Elaborating entity "mux2" for hierarchy "datapath:dp|fetch:FETCH|mux2:fetchmux" File: /home/amparo/ArquiComputadoras/Practico1/fetch.sv Line: 13
-Info (12128): Elaborating entity "flopr" for hierarchy "datapath:dp|fetch:FETCH|flopr:flopfetch" File: /home/amparo/ArquiComputadoras/Practico1/fetch.sv Line: 16
-Info (12128): Elaborating entity "adder" for hierarchy "datapath:dp|fetch:FETCH|adder:adderfetch" File: /home/amparo/ArquiComputadoras/Practico1/fetch.sv Line: 19
-Info (12128): Elaborating entity "decode" for hierarchy "datapath:dp|decode:DECODE" File: /home/amparo/ArquiComputadoras/Practico2/datapath.sv Line: 39
-Info (12128): Elaborating entity "mux2" for hierarchy "datapath:dp|decode:DECODE|mux2:ra2mux" File: /home/amparo/ArquiComputadoras/Practico2/decode.sv Line: 11
-Info (12128): Elaborating entity "regfile" for hierarchy "datapath:dp|decode:DECODE|regfile:registers" File: /home/amparo/ArquiComputadoras/Practico2/decode.sv Line: 14
-Info (12128): Elaborating entity "signext" for hierarchy "datapath:dp|decode:DECODE|signext:ext" File: /home/amparo/ArquiComputadoras/Practico2/decode.sv Line: 17
-Info (12128): Elaborating entity "execute" for hierarchy "datapath:dp|execute:EXECUTE" File: /home/amparo/ArquiComputadoras/Practico2/datapath.sv Line: 52
-Info (12128): Elaborating entity "alu" for hierarchy "datapath:dp|execute:EXECUTE|alu:alu" File: /home/amparo/ArquiComputadoras/Practico1/execute.sv Line: 14
-Info (12128): Elaborating entity "sl2" for hierarchy "datapath:dp|execute:EXECUTE|sl2:shiftBR" File: /home/amparo/ArquiComputadoras/Practico1/execute.sv Line: 17
-Info (12128): Elaborating entity "memory" for hierarchy "datapath:dp|memory:MEMORY" File: /home/amparo/ArquiComputadoras/Practico2/datapath.sv Line: 58
-Info (12128): Elaborating entity "writeback" for hierarchy "datapath:dp|writeback:WRITEBACK" File: /home/amparo/ArquiComputadoras/Practico2/datapath.sv Line: 65
-Info (12128): Elaborating entity "imem" for hierarchy "imem:instrMem" File: /home/amparo/ArquiComputadoras/Practico2/processor_arm.sv Line: 46
-Warning (10030): Net "ROM.data_a" at imem.sv(7) has no driver or initial value, using a default initial value '0' File: /home/amparo/ArquiComputadoras/Practico1/imem.sv Line: 7
-Warning (10030): Net "ROM.waddr_a" at imem.sv(7) has no driver or initial value, using a default initial value '0' File: /home/amparo/ArquiComputadoras/Practico1/imem.sv Line: 7
-Warning (10030): Net "ROM.we_a" at imem.sv(7) has no driver or initial value, using a default initial value '0' File: /home/amparo/ArquiComputadoras/Practico1/imem.sv Line: 7
-Info (12128): Elaborating entity "dmem" for hierarchy "dmem:dataMem" File: /home/amparo/ArquiComputadoras/Practico2/processor_arm.sv Line: 55
+Info (12128): Elaborating entity "controller" for hierarchy "controller:c" File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/processor_arm.sv Line: 23
+Info (12128): Elaborating entity "maindec" for hierarchy "controller:c|maindec:decPpal" File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/controller.sv Line: 18
+Info (12128): Elaborating entity "aludec" for hierarchy "controller:c|aludec:decAlu" File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/controller.sv Line: 23
+Info (12128): Elaborating entity "datapath" for hierarchy "datapath:dp" File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/processor_arm.sv Line: 42
+Info (12128): Elaborating entity "fetch" for hierarchy "datapath:dp|fetch:FETCH" File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/datapath.sv Line: 28
+Info (12128): Elaborating entity "mux2" for hierarchy "datapath:dp|fetch:FETCH|mux2:fetchmux" File: /home/amparo/Escritorio/ArquiComputadoras/Practico1/fetch.sv Line: 13
+Info (12128): Elaborating entity "flopr" for hierarchy "datapath:dp|fetch:FETCH|flopr:flopfetch" File: /home/amparo/Escritorio/ArquiComputadoras/Practico1/fetch.sv Line: 16
+Info (12128): Elaborating entity "adder" for hierarchy "datapath:dp|fetch:FETCH|adder:adderfetch" File: /home/amparo/Escritorio/ArquiComputadoras/Practico1/fetch.sv Line: 19
+Info (12128): Elaborating entity "decode" for hierarchy "datapath:dp|decode:DECODE" File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/datapath.sv Line: 39
+Info (12128): Elaborating entity "mux2" for hierarchy "datapath:dp|decode:DECODE|mux2:ra2mux" File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/decode.sv Line: 11
+Info (12128): Elaborating entity "regfile" for hierarchy "datapath:dp|decode:DECODE|regfile:registers" File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/decode.sv Line: 14
+Info (12128): Elaborating entity "signext" for hierarchy "datapath:dp|decode:DECODE|signext:ext" File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/decode.sv Line: 17
+Info (12128): Elaborating entity "execute" for hierarchy "datapath:dp|execute:EXECUTE" File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/datapath.sv Line: 52
+Info (12128): Elaborating entity "alu" for hierarchy "datapath:dp|execute:EXECUTE|alu:alu" File: /home/amparo/Escritorio/ArquiComputadoras/Practico1/execute.sv Line: 14
+Info (12128): Elaborating entity "sl2" for hierarchy "datapath:dp|execute:EXECUTE|sl2:shiftBR" File: /home/amparo/Escritorio/ArquiComputadoras/Practico1/execute.sv Line: 17
+Info (12128): Elaborating entity "memory" for hierarchy "datapath:dp|memory:MEMORY" File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/datapath.sv Line: 58
+Info (12128): Elaborating entity "writeback" for hierarchy "datapath:dp|writeback:WRITEBACK" File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/datapath.sv Line: 65
+Info (12128): Elaborating entity "imem" for hierarchy "imem:instrMem" File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/processor_arm.sv Line: 46
+Warning (10030): Net "ROM.data_a" at imem.sv(7) has no driver or initial value, using a default initial value '0' File: /home/amparo/Escritorio/ArquiComputadoras/Practico1/imem.sv Line: 7
+Warning (10030): Net "ROM.waddr_a" at imem.sv(7) has no driver or initial value, using a default initial value '0' File: /home/amparo/Escritorio/ArquiComputadoras/Practico1/imem.sv Line: 7
+Warning (10030): Net "ROM.we_a" at imem.sv(7) has no driver or initial value, using a default initial value '0' File: /home/amparo/Escritorio/ArquiComputadoras/Practico1/imem.sv Line: 7
+Info (12128): Elaborating entity "dmem" for hierarchy "dmem:dataMem" File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/processor_arm.sv Line: 55
 Info (276014): Found 1 instances of uninferred RAM logic
-    Info (276007): RAM logic "datapath:dp|decode:DECODE|regfile:registers|regs" is uninferred due to asynchronous read logic File: /home/amparo/ArquiComputadoras/Practico1/regfile.sv Line: 30
+    Info (276007): RAM logic "datapath:dp|decode:DECODE|regfile:registers|regs" is uninferred due to asynchronous read logic File: /home/amparo/Escritorio/ArquiComputadoras/Practico1/regfile.sv Line: 30
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 56 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 1 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "dump" File: /home/amparo/ArquiComputadoras/Practico2/processor_arm.sv Line: 7
+    Warning (15610): No output dependent on input pin "dump" File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/processor_arm.sv Line: 7
 Info (21057): Implemented 12448 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
     Info (21059): Implemented 129 output pins
     Info (21061): Implemented 12316 logic cells
+Info (144001): Generated suppressed messages file /home/amparo/Escritorio/ArquiComputadoras/Practico2/output_files/PART2_SingleCycleProcessor.map.smsg
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 463 megabytes
-    Info: Processing ended: Sat Sep 17 12:01:57 2022
-    Info: Elapsed time: 00:05:13
-    Info: Total CPU time (on all processors): 00:05:30
+    Info: Peak virtual memory: 462 megabytes
+    Info: Processing ended: Mon Sep 19 13:14:55 2022
+    Info: Elapsed time: 00:02:37
+    Info: Total CPU time (on all processors): 00:02:46
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in /home/amparo/Escritorio/ArquiComputadoras/Practico2/output_files/PART2_SingleCycleProcessor.map.smsg.
 
 
