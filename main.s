@@ -27,20 +27,20 @@ exitloop:
 	// Inizialización de la memoria
 		ADD x10, xzr, xzr // x10 = 0
 	loop2: // while x0 != 30
-		SUB x11, x0, x30
-		CBZ x11, end
-		STUR x0, [x10, #0]
-		ADD x0, x1, x0
-		ADD x10, x10, x8
-		CBZ xzr, loop2
+		SUB x11, x0, x30 //x11 = -30
+		CBZ x11, end // hasta q 
+		STUR x0, [x10, #0] //
+		ADD x0, x1, x0 //
+		ADD x10, x10, x8 //
+		CBZ xzr, loop2 //
 	end:
 
 	// Ejercicio 2b
 	// N = 29
 
 
-		stur x12, [x0, #8]
-		stur x18, [x0, #32]
+		stur x12, [x0, #8] // x12 = 12. Cargo el valor 12 en la 2da posicion de memoria
+		stur x18, [x0, #32] // cargo 18 en la 4ta posicion de memoria 
 
 
 

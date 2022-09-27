@@ -39,7 +39,7 @@
 
 set_global_assignment -name FAMILY "Cyclone IV E"
 set_global_assignment -name DEVICE auto
-set_global_assignment -name TOP_LEVEL_ENTITY exception
+set_global_assignment -name TOP_LEVEL_ENTITY processor_arm
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 20.1.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "14:14:20  SEPTEMBER 19, 2022"
 set_global_assignment -name LAST_QUARTUS_VERSION "20.1.0 Lite Edition"
@@ -51,6 +51,23 @@ set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_symbol
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_signal_integrity
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_boundary_scan
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name SYSTEMVERILOG_FILE ../../../Descargas/processor_tb.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../Practico1/signext.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../Practico1/regfile.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../Practico2/memory.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../Practico2/writeback.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../Practico1/imem.sv
+set_global_assignment -name VHDL_FILE ../Practico2/dmem.vhd
+set_global_assignment -name SYSTEMVERILOG_FILE ../Practico2/decode.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../Practico2/datapath.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../Practico2/aludec.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../Practico2/controller.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../Practico2/processor_arm.sv
+set_global_assignment -name SYSTEMVERILOG_FILE ../Practico1/maindec.sv
 set_global_assignment -name SYSTEMVERILOG_FILE ../Practico1/flopr.sv
 set_global_assignment -name SYSTEMVERILOG_FILE ../Practico1/sl2.sv
 set_global_assignment -name SYSTEMVERILOG_FILE ../Practico1/mux2.sv
@@ -63,7 +80,3 @@ set_global_assignment -name SYSTEMVERILOG_FILE modulos/comp_n.sv
 set_global_assignment -name SYSTEMVERILOG_FILE modulos/exception.sv
 set_global_assignment -name SYSTEMVERILOG_FILE modulos/execute.sv
 set_global_assignment -name SYSTEMVERILOG_FILE modulos/fetch.sv
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

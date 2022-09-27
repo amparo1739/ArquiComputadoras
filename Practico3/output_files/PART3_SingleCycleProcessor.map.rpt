@@ -1,5 +1,5 @@
 Analysis & Synthesis report for PART3_SingleCycleProcessor
-Mon Sep 19 22:04:36 2022
+Tue Sep 27 20:20:06 2022
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -13,21 +13,41 @@ Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Parameter Settings for User Entity Instance: mux4:mux4
- 10. Parameter Settings for User Entity Instance: comp_n:comp_n
- 11. Parameter Settings for User Entity Instance: flopr_e:flopre1
- 12. Parameter Settings for User Entity Instance: flopr_e:flopre2
- 13. Parameter Settings for User Entity Instance: mux4:muxx4
- 14. Parameter Settings for User Entity Instance: flopr_e:flopre3
- 15. Parameter Settings for User Entity Instance: mux2:muxx2
- 16. Port Connectivity Checks: "mux2:muxx2"
- 17. Port Connectivity Checks: "mux4:muxx4"
- 18. Port Connectivity Checks: "flopr_e:flopre2"
- 19. Port Connectivity Checks: "comp_n:comp_n"
- 20. Post-Synthesis Netlist Statistics for Top Partition
- 21. Elapsed Time Per Partition
- 22. Analysis & Synthesis Messages
+  8. User-Specified and Inferred Latches
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: Top-level Entity: |processor_arm
+ 13. Parameter Settings for User Entity Instance: datapath:dp
+ 14. Parameter Settings for User Entity Instance: datapath:dp|comp_n:equal
+ 15. Parameter Settings for User Entity Instance: datapath:dp|exception:EXC|flopr_e:ERR
+ 16. Parameter Settings for User Entity Instance: datapath:dp|exception:EXC|flopr_e:ELR
+ 17. Parameter Settings for User Entity Instance: datapath:dp|exception:EXC|flopr_e:ESR
+ 18. Parameter Settings for User Entity Instance: datapath:dp|exception:EXC|mux2:mux2
+ 19. Parameter Settings for User Entity Instance: datapath:dp|exception:EXC|mux4:mux4
+ 20. Parameter Settings for User Entity Instance: datapath:dp|fetch:FETCH|mux2:fetchmux
+ 21. Parameter Settings for User Entity Instance: datapath:dp|fetch:FETCH|mux2:fetchmux2
+ 22. Parameter Settings for User Entity Instance: datapath:dp|fetch:FETCH|flopr:flopfetch
+ 23. Parameter Settings for User Entity Instance: datapath:dp|fetch:FETCH|adder:adderfetch
+ 24. Parameter Settings for User Entity Instance: datapath:dp|decode:DECODE
+ 25. Parameter Settings for User Entity Instance: datapath:dp|decode:DECODE|mux2:ra2mux
+ 26. Parameter Settings for User Entity Instance: datapath:dp|execute:EXECUTE|mux4:alumux
+ 27. Parameter Settings for User Entity Instance: datapath:dp|execute:EXECUTE|sl2:shiftBR
+ 28. Parameter Settings for User Entity Instance: datapath:dp|execute:EXECUTE|adder:pcadd
+ 29. Parameter Settings for User Entity Instance: datapath:dp|writeback:WRITEBACK
+ 30. Parameter Settings for User Entity Instance: datapath:dp|writeback:WRITEBACK|mux2:MtoRmux
+ 31. Parameter Settings for User Entity Instance: imem:instrMem
+ 32. Port Connectivity Checks: "datapath:dp|execute:EXECUTE|mux4:alumux"
+ 33. Port Connectivity Checks: "datapath:dp|execute:EXECUTE"
+ 34. Port Connectivity Checks: "datapath:dp|fetch:FETCH|adder:adderfetch"
+ 35. Port Connectivity Checks: "datapath:dp|exception:EXC|mux4:mux4"
+ 36. Port Connectivity Checks: "datapath:dp|exception:EXC"
+ 37. Port Connectivity Checks: "datapath:dp"
+ 38. Port Connectivity Checks: "controller:c"
+ 39. Post-Synthesis Netlist Statistics for Top Partition
+ 40. Elapsed Time Per Partition
+ 41. Analysis & Synthesis Messages
+ 42. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -54,16 +74,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Sep 19 22:04:36 2022       ;
+; Analysis & Synthesis Status        ; Successful - Tue Sep 27 20:20:06 2022       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; PART3_SingleCycleProcessor                  ;
-; Top-level Entity Name              ; exception                                   ;
+; Top-level Entity Name              ; processor_arm                               ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 0                                           ;
-;     Total combinational functions  ; 0                                           ;
-;     Dedicated logic registers      ; 0                                           ;
-; Total registers                    ; 0                                           ;
-; Total pins                         ; 105                                         ;
+; Total logic elements               ; 12,264                                      ;
+;     Total combinational functions  ; 6,323                                       ;
+;     Dedicated logic registers      ; 6,206                                       ;
+; Total registers                    ; 6206                                        ;
+; Total pins                         ; 134                                         ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -76,7 +96,7 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------------------------------------+--------------------+----------------------------+
 ; Option                                                           ; Setting            ; Default Value              ;
 +------------------------------------------------------------------+--------------------+----------------------------+
-; Top-level entity name                                            ; exception          ; PART3_SingleCycleProcessor ;
+; Top-level entity name                                            ; processor_arm      ; PART3_SingleCycleProcessor ;
 ; Family name                                                      ; Cyclone IV E       ; Cyclone V                  ;
 ; Use smart compilation                                            ; Off                ; Off                        ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                         ;
@@ -165,10 +185,11 @@ https://fpgasoftware.intel.com/eula.
 ; Maximum allowed            ; 2           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 2           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.4%      ;
 +----------------------------+-------------+
 
 
@@ -177,54 +198,117 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                             ; Library ;
 +----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------+---------+
+; ../Practico1/signext.sv          ; yes             ; User SystemVerilog HDL File  ; /home/amparo/Escritorio/ArquiComputadoras/Practico1/signext.sv           ;         ;
+; ../Practico1/regfile.sv          ; yes             ; User SystemVerilog HDL File  ; /home/amparo/Escritorio/ArquiComputadoras/Practico1/regfile.sv           ;         ;
+; ../Practico2/memory.sv           ; yes             ; User SystemVerilog HDL File  ; /home/amparo/Escritorio/ArquiComputadoras/Practico2/memory.sv            ;         ;
+; ../Practico2/writeback.sv        ; yes             ; User SystemVerilog HDL File  ; /home/amparo/Escritorio/ArquiComputadoras/Practico2/writeback.sv         ;         ;
+; ../Practico1/imem.sv             ; yes             ; User SystemVerilog HDL File  ; /home/amparo/Escritorio/ArquiComputadoras/Practico1/imem.sv              ;         ;
+; ../Practico2/dmem.vhd            ; yes             ; User VHDL File               ; /home/amparo/Escritorio/ArquiComputadoras/Practico2/dmem.vhd             ;         ;
+; ../Practico2/decode.sv           ; yes             ; User SystemVerilog HDL File  ; /home/amparo/Escritorio/ArquiComputadoras/Practico2/decode.sv            ;         ;
+; ../Practico2/datapath.sv         ; yes             ; User SystemVerilog HDL File  ; /home/amparo/Escritorio/ArquiComputadoras/Practico2/datapath.sv          ;         ;
+; ../Practico2/aludec.sv           ; yes             ; User SystemVerilog HDL File  ; /home/amparo/Escritorio/ArquiComputadoras/Practico2/aludec.sv            ;         ;
+; ../Practico2/controller.sv       ; yes             ; User SystemVerilog HDL File  ; /home/amparo/Escritorio/ArquiComputadoras/Practico2/controller.sv        ;         ;
+; ../Practico2/processor_arm.sv    ; yes             ; User SystemVerilog HDL File  ; /home/amparo/Escritorio/ArquiComputadoras/Practico2/processor_arm.sv     ;         ;
+; ../Practico1/maindec.sv          ; yes             ; User SystemVerilog HDL File  ; /home/amparo/Escritorio/ArquiComputadoras/Practico1/maindec.sv           ;         ;
+; ../Practico1/flopr.sv            ; yes             ; User SystemVerilog HDL File  ; /home/amparo/Escritorio/ArquiComputadoras/Practico1/flopr.sv             ;         ;
+; ../Practico1/sl2.sv              ; yes             ; User SystemVerilog HDL File  ; /home/amparo/Escritorio/ArquiComputadoras/Practico1/sl2.sv               ;         ;
 ; ../Practico1/mux2.sv             ; yes             ; User SystemVerilog HDL File  ; /home/amparo/Escritorio/ArquiComputadoras/Practico1/mux2.sv              ;         ;
+; ../Practico1/adder.sv            ; yes             ; User SystemVerilog HDL File  ; /home/amparo/Escritorio/ArquiComputadoras/Practico1/adder.sv             ;         ;
+; ../Practico1/alu.sv              ; yes             ; User SystemVerilog HDL File  ; /home/amparo/Escritorio/ArquiComputadoras/Practico1/alu.sv               ;         ;
 ; modulos/flopr_e.sv               ; yes             ; User SystemVerilog HDL File  ; /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/flopr_e.sv   ;         ;
 ; modulos/mux4.sv                  ; yes             ; User SystemVerilog HDL File  ; /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/mux4.sv      ;         ;
 ; modulos/eSync.sv                 ; yes             ; User SystemVerilog HDL File  ; /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/eSync.sv     ;         ;
 ; modulos/comp_n.sv                ; yes             ; User SystemVerilog HDL File  ; /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/comp_n.sv    ;         ;
 ; modulos/exception.sv             ; yes             ; User SystemVerilog HDL File  ; /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv ;         ;
+; modulos/execute.sv               ; yes             ; User SystemVerilog HDL File  ; /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/execute.sv   ;         ;
+; modulos/fetch.sv                 ; yes             ; User SystemVerilog HDL File  ; /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/fetch.sv     ;         ;
 +----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary         ;
-+---------------------------------------------+-------+
-; Resource                                    ; Usage ;
-+---------------------------------------------+-------+
-;                                             ;       ;
-; Total combinational functions               ; 0     ;
-; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 0     ;
-;     -- 3 input functions                    ; 0     ;
-;     -- <=2 input functions                  ; 0     ;
-;                                             ;       ;
-; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 0     ;
-;     -- arithmetic mode                      ; 0     ;
-;                                             ;       ;
-; Total registers                             ; 0     ;
-;     -- Dedicated logic registers            ; 0     ;
-;     -- I/O registers                        ; 0     ;
-;                                             ;       ;
-; I/O pins                                    ; 105   ;
-;                                             ;       ;
-; Embedded Multiplier 9-bit elements          ; 0     ;
-;                                             ;       ;
-; Maximum fan-out node                        ; clk   ;
-; Maximum fan-out                             ; 1     ;
-; Total fan-out                               ; 105   ;
-; Average fan-out                             ; 0.50  ;
-+---------------------------------------------+-------+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimated Total logic elements              ; 12,264         ;
+;                                             ;                ;
+; Total combinational functions               ; 6323           ;
+; Logic element usage by number of LUT inputs ;                ;
+;     -- 4 input functions                    ; 5992           ;
+;     -- 3 input functions                    ; 238            ;
+;     -- <=2 input functions                  ; 93             ;
+;                                             ;                ;
+; Logic elements by mode                      ;                ;
+;     -- normal mode                          ; 6198           ;
+;     -- arithmetic mode                      ; 125            ;
+;                                             ;                ;
+; Total registers                             ; 6206           ;
+;     -- Dedicated logic registers            ; 6206           ;
+;     -- I/O registers                        ; 0              ;
+;                                             ;                ;
+; I/O pins                                    ; 134            ;
+;                                             ;                ;
+; Embedded Multiplier 9-bit elements          ; 0              ;
+;                                             ;                ;
+; Maximum fan-out node                        ; CLOCK_50~input ;
+; Maximum fan-out                             ; 6206           ;
+; Total fan-out                               ; 43793          ;
+; Average fan-out                             ; 3.42           ;
++---------------------------------------------+----------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                      ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
-; |exception                 ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 105  ; 0            ; |exception          ; exception   ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                  ;
++------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------+---------------+--------------+
+; Compilation Hierarchy Node   ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                         ; Entity Name   ; Library Name ;
++------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------+---------------+--------------+
+; |processor_arm               ; 6323 (1)            ; 6206 (0)                  ; 0           ; 0            ; 0       ; 0         ; 134  ; 0            ; |processor_arm                                              ; processor_arm ; work         ;
+;    |controller:c|            ; 19 (2)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|controller:c                                 ; controller    ; work         ;
+;       |aludec:decAlu|        ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|controller:c|aludec:decAlu                   ; aludec        ; work         ;
+;       |maindec:decPpal|      ; 12 (12)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|controller:c|maindec:decPpal                 ; maindec       ; work         ;
+;    |datapath:dp|             ; 6126 (0)            ; 2110 (0)                  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp                                  ; datapath      ; work         ;
+;       |comp_n:equal|         ; 20 (20)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|comp_n:equal                     ; comp_n        ; work         ;
+;       |decode:DECODE|        ; 2843 (0)            ; 2048 (0)                  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|decode:DECODE                    ; decode        ; work         ;
+;          |mux2:ra2mux|       ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|decode:DECODE|mux2:ra2mux        ; mux2          ; work         ;
+;          |regfile:registers| ; 2831 (2831)         ; 2048 (2048)               ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|decode:DECODE|regfile:registers  ; regfile       ; work         ;
+;          |signext:ext|       ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|decode:DECODE|signext:ext        ; signext       ; work         ;
+;       |exception:EXC|        ; 4 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|exception:EXC                    ; exception     ; work         ;
+;          |eSync:es|          ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|exception:EXC|eSync:es           ; eSync         ; work         ;
+;       |execute:EXECUTE|      ; 422 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|execute:EXECUTE                  ; execute       ; work         ;
+;          |adder:pcadd|       ; 27 (27)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|execute:EXECUTE|adder:pcadd      ; adder         ; work         ;
+;          |alu:alu|           ; 387 (387)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|execute:EXECUTE|alu:alu          ; alu           ; work         ;
+;          |mux4:alumux|       ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|execute:EXECUTE|mux4:alumux      ; mux4          ; work         ;
+;       |fetch:FETCH|          ; 62 (0)              ; 62 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|fetch:FETCH                      ; fetch         ; work         ;
+;          |flopr:flopfetch|   ; 62 (62)             ; 62 (62)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|fetch:FETCH|flopr:flopfetch      ; flopr         ; work         ;
+;       |memory:MEMORY|        ; 22 (22)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|memory:MEMORY                    ; memory        ; work         ;
+;       |writeback:WRITEBACK|  ; 2753 (0)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|writeback:WRITEBACK              ; writeback     ; work         ;
+;          |mux2:MtoRmux|      ; 2753 (2753)         ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|datapath:dp|writeback:WRITEBACK|mux2:MtoRmux ; mux2          ; work         ;
+;    |dmem:dataMem|            ; 72 (72)             ; 4096 (4096)               ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|dmem:dataMem                                 ; dmem          ; work         ;
+;    |imem:instrMem|           ; 105 (105)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |processor_arm|imem:instrMem                                ; imem          ; work         ;
++------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------+---------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                               ;
++----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
++----------------------------------------------------+---------------------+------------------------+
+; datapath:dp|exception:EXC|eSync:es|out             ; GND                 ; yes                    ;
+; Number of user-specified and inferred latches = 1  ;                     ;                        ;
++----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++---------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                      ;
++----------------------------------------------+----------------------------------------------------------+
+; Register name                                ; Reason for Removal                                       ;
++----------------------------------------------+----------------------------------------------------------+
+; datapath:dp|fetch:FETCH|flopr:flopfetch|q[1] ; Merged with datapath:dp|fetch:FETCH|flopr:flopfetch|q[0] ;
+; datapath:dp|fetch:FETCH|flopr:flopfetch|q[0] ; Stuck at GND due to stuck port data_in                   ;
+; Total Number of Removed Registers = 2        ;                                                          ;
++----------------------------------------------+----------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -232,126 +316,297 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
+; Total registers                              ; 6206  ;
 ; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Synchronous Load   ; 62    ;
+; Number of registers using Asynchronous Clear ; 62    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 6144  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+--------------------------------------------------------+
-; Parameter Settings for User Entity Instance: mux4:mux4 ;
-+----------------+-------+-------------------------------+
-; Parameter Name ; Value ; Type                          ;
-+----------------+-------+-------------------------------+
-; N              ; 64    ; Signed Integer                ;
-+----------------+-------+-------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------+
+; 8:1                ; 64 bits   ; 320 LEs       ; 256 LEs              ; 64 LEs                 ; No         ; |processor_arm|datapath:dp|execute:EXECUTE|alu:alu|Mux61          ;
+; 66:1               ; 64 bits   ; 2816 LEs      ; 2816 LEs             ; 0 LEs                  ; No         ; |processor_arm|datapath:dp|writeback:WRITEBACK|mux2:MtoRmux|y[45] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |processor_arm ;
++----------------+-------+------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                 ;
++----------------+-------+------------------------------------------------------+
+; N              ; 64    ; Signed Integer                                       ;
++----------------+-------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:dp ;
++----------------+-------+---------------------------------+
+; Parameter Name ; Value ; Type                            ;
++----------------+-------+---------------------------------+
+; N              ; 64    ; Signed Integer                  ;
++----------------+-------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:dp|comp_n:equal ;
++----------------+-------+----------------------------------------------+
+; Parameter Name ; Value ; Type                                         ;
++----------------+-------+----------------------------------------------+
+; N              ; 64    ; Signed Integer                               ;
++----------------+-------+----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:dp|exception:EXC|flopr_e:ERR ;
++----------------+-------+-----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                      ;
++----------------+-------+-----------------------------------------------------------+
+; N              ; 64    ; Signed Integer                                            ;
++----------------+-------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:dp|exception:EXC|flopr_e:ELR ;
++----------------+-------+-----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                      ;
++----------------+-------+-----------------------------------------------------------+
+; N              ; 64    ; Signed Integer                                            ;
++----------------+-------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:dp|exception:EXC|flopr_e:ESR ;
++----------------+-------+-----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                      ;
++----------------+-------+-----------------------------------------------------------+
+; N              ; 4     ; Signed Integer                                            ;
++----------------+-------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:dp|exception:EXC|mux2:mux2 ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; N              ; 64    ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:dp|exception:EXC|mux4:mux4 ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; N              ; 64    ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:dp|fetch:FETCH|mux2:fetchmux ;
++----------------+-------+-----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                      ;
++----------------+-------+-----------------------------------------------------------+
+; N              ; 64    ; Signed Integer                                            ;
++----------------+-------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:dp|fetch:FETCH|mux2:fetchmux2 ;
++----------------+-------+------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                       ;
++----------------+-------+------------------------------------------------------------+
+; N              ; 64    ; Signed Integer                                             ;
++----------------+-------+------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:dp|fetch:FETCH|flopr:flopfetch ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; N              ; 64    ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:dp|fetch:FETCH|adder:adderfetch ;
++----------------+-------+--------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                         ;
++----------------+-------+--------------------------------------------------------------+
+; N              ; 64    ; Signed Integer                                               ;
++----------------+-------+--------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:dp|decode:DECODE ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; N              ; 64    ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:dp|decode:DECODE|mux2:ra2mux ;
++----------------+-------+-----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                      ;
++----------------+-------+-----------------------------------------------------------+
+; N              ; 5     ; Signed Integer                                            ;
++----------------+-------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:dp|execute:EXECUTE|mux4:alumux ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; N              ; 64    ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:dp|execute:EXECUTE|sl2:shiftBR ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; N              ; 64    ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:dp|execute:EXECUTE|adder:pcadd ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; N              ; 64    ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:dp|writeback:WRITEBACK ;
++----------------+-------+-----------------------------------------------------+
+; Parameter Name ; Value ; Type                                                ;
++----------------+-------+-----------------------------------------------------+
+; N              ; 64    ; Signed Integer                                      ;
++----------------+-------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:dp|writeback:WRITEBACK|mux2:MtoRmux ;
++----------------+-------+------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                             ;
++----------------+-------+------------------------------------------------------------------+
+; N              ; 64    ; Signed Integer                                                   ;
++----------------+-------+------------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: comp_n:comp_n ;
+; Parameter Settings for User Entity Instance: imem:instrMem ;
 +----------------+-------+-----------------------------------+
 ; Parameter Name ; Value ; Type                              ;
 +----------------+-------+-----------------------------------+
-; N              ; 64    ; Signed Integer                    ;
+; N              ; 32    ; Signed Integer                    ;
 +----------------+-------+-----------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+--------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: flopr_e:flopre1 ;
-+----------------+-------+-------------------------------------+
-; Parameter Name ; Value ; Type                                ;
-+----------------+-------+-------------------------------------+
-; N              ; 64    ; Signed Integer                      ;
-+----------------+-------+-------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "datapath:dp|execute:EXECUTE|mux4:alumux"                                                                                                 ;
++------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                   ;
++------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
+; s    ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (2 bits) it drives.  Extra input bit(s) "s[1..1]" will be connected to GND. ;
++------+-------+----------+-------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+--------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: flopr_e:flopre2 ;
-+----------------+-------+-------------------------------------+
-; Parameter Name ; Value ; Type                                ;
-+----------------+-------+-------------------------------------+
-; N              ; 64    ; Signed Integer                      ;
-+----------------+-------+-------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "datapath:dp|execute:EXECUTE"                                                                                                                                                           ;
++-------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port        ; Type  ; Severity ; Details                                                                                                                                                                          ;
++-------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; AluSrc      ; Input ; Warning  ; Input port expression (2 bits) is wider than the input port (1 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; readData3_E ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND.                                     ;
++-------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+---------------------------------------------------------+
-; Parameter Settings for User Entity Instance: mux4:muxx4 ;
-+----------------+-------+--------------------------------+
-; Parameter Name ; Value ; Type                           ;
-+----------------+-------+--------------------------------+
-; N              ; 64    ; Signed Integer                 ;
-+----------------+-------+--------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
++----------------------------------------------------------------------+
+; Port Connectivity Checks: "datapath:dp|fetch:FETCH|adder:adderfetch" ;
++----------+-------+----------+----------------------------------------+
+; Port     ; Type  ; Severity ; Details                                ;
++----------+-------+----------+----------------------------------------+
+; a[63..3] ; Input ; Info     ; Stuck at GND                           ;
+; a[1..0]  ; Input ; Info     ; Stuck at GND                           ;
+; a[2]     ; Input ; Info     ; Stuck at VCC                           ;
++----------+-------+----------+----------------------------------------+
 
 
-+--------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: flopr_e:flopre3 ;
-+----------------+-------+-------------------------------------+
-; Parameter Name ; Value ; Type                                ;
-+----------------+-------+-------------------------------------+
-; N              ; 64    ; Signed Integer                      ;
-+----------------+-------+-------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
++-----------------------------------------------------------------+
+; Port Connectivity Checks: "datapath:dp|exception:EXC|mux4:mux4" ;
++-----------+-------+----------+----------------------------------+
+; Port      ; Type  ; Severity ; Details                          ;
++-----------+-------+----------+----------------------------------+
+; d2[63..4] ; Input ; Info     ; Stuck at GND                     ;
+; d3        ; Input ; Info     ; Stuck at GND                     ;
++-----------+-------+----------+----------------------------------+
 
 
-+---------------------------------------------------------+
-; Parameter Settings for User Entity Instance: mux2:muxx2 ;
-+----------------+-------+--------------------------------+
-; Parameter Name ; Value ; Type                           ;
-+----------------+-------+--------------------------------+
-; N              ; 64    ; Signed Integer                 ;
-+----------------+-------+--------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "datapath:dp|exception:EXC"                                                                                                                                  ;
++-------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                                                                                              ;
++-------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
+; PCBranch_E  ; Input  ; Warning  ; Input port expression (1 bits) is smaller than the input port (64 bits) it drives.  Extra input bit(s) "PCBranch_E[63..1]" will be connected to GND. ;
+; readData3_E ; Output ; Warning  ; Output or bidir port (64 bits) is wider than the port expression (1 bits) it drives; bit(s) "readData3_E[63..1]" have no fanouts                     ;
+; readData3_E ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                  ;
+; PCBranch    ; Output ; Warning  ; Output or bidir port (64 bits) is wider than the port expression (1 bits) it drives; bit(s) "PCBranch[63..1]" have no fanouts                        ;
+; PCBranch    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                  ;
++-------------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "mux2:muxx2"                                                                         ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                             ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
-; y    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+------+--------+----------+-------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "datapath:dp"                                                                                                                                              ;
++----------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port           ; Type   ; Severity ; Details                                                                                                                                         ;
++----------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+; EStatus        ; Input  ; Warning  ; Input port expression (1 bits) is smaller than the input port (4 bits) it drives.  Extra input bit(s) "EStatus[3..1]" will be connected to GND. ;
+; IM_addr[63..8] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                             ;
+; IM_addr[1..0]  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                             ;
++----------------+--------+----------+-------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "mux4:muxx4"                                                                                                                                                                        ;
-+------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                                                                                                                            ;
-+------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; d3   ; Input  ; Info     ; Stuck at GND                                                                                                                                                                       ;
-; s    ; Input  ; Warning  ; Input port expression (32 bits) is wider than the input port (2 bits) it drives.  The 30 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-; y    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                                ;
-+------+--------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-
-
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "flopr_e:flopre2"                                                                                                                           ;
-+------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
-; Port ; Type  ; Severity ; Details                                                                                                                                     ;
-+------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
-; d    ; Input ; Warning  ; Input port expression (4 bits) is smaller than the input port (64 bits) it drives.  Extra input bit(s) "d[63..4]" will be connected to GND. ;
-+------+-------+----------+---------------------------------------------------------------------------------------------------------------------------------------------+
-
-
-+----------------------------------------------+
-; Port Connectivity Checks: "comp_n:comp_n"    ;
-+------------+-------+----------+--------------+
-; Port       ; Type  ; Severity ; Details      ;
-+------------+-------+----------+--------------+
-; in1[7..6]  ; Input ; Info     ; Stuck at VCC ;
-; in1[4..3]  ; Input ; Info     ; Stuck at VCC ;
-; in1[63..8] ; Input ; Info     ; Stuck at GND ;
-; in1[2..0]  ; Input ; Info     ; Stuck at GND ;
-; in1[5]     ; Input ; Info     ; Stuck at GND ;
-+------------+-------+----------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "controller:c"                                                                                                                 ;
++---------+--------+----------+----------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                                                                    ;
++---------+--------+----------+----------------------------------------------------------------------------------------------------------------------------+
+; EStatus ; Output ; Warning  ; Output or bidir port (4 bits) is wider than the port expression (1 bits) it drives; bit(s) "EStatus[3..1]" have no fanouts ;
++---------+--------+----------+----------------------------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -359,13 +614,22 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 105                         ;
-; cycloneiii_lcell_comb ; 1                           ;
-;     normal            ; 1                           ;
+; boundary_port         ; 134                         ;
+; cycloneiii_ff         ; 6206                        ;
+;     CLR SLD           ; 62                          ;
+;     ENA               ; 6144                        ;
+; cycloneiii_lcell_comb ; 6323                        ;
+;     arith             ; 125                         ;
+;         3 data inputs ; 125                         ;
+;     normal            ; 6198                        ;
 ;         0 data inputs ; 1                           ;
+;         1 data inputs ; 75                          ;
+;         2 data inputs ; 17                          ;
+;         3 data inputs ; 113                         ;
+;         4 data inputs ; 5992                        ;
 ;                       ;                             ;
-; Max LUT depth         ; 0.00                        ;
-; Average LUT depth     ; 0.00                        ;
+; Max LUT depth         ; 32.20                       ;
+; Average LUT depth     ; 17.47                       ;
 +-----------------------+-----------------------------+
 
 
@@ -374,7 +638,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:02:59     ;
 +----------------+--------------+
 
 
@@ -384,10 +648,35 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
-    Info: Processing started: Mon Sep 19 22:03:50 2022
+    Info: Processing started: Tue Sep 27 20:16:26 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off PART3_SingleCycleProcessor -c PART3_SingleCycleProcessor
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/Escritorio/ArquiComputadoras/Practico1/signext.sv
+    Info (12023): Found entity 1: signext File: /home/amparo/Escritorio/ArquiComputadoras/Practico1/signext.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/Escritorio/ArquiComputadoras/Practico1/regfile.sv
+    Info (12023): Found entity 1: regfile File: /home/amparo/Escritorio/ArquiComputadoras/Practico1/regfile.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/Escritorio/ArquiComputadoras/Practico2/memory.sv
+    Info (12023): Found entity 1: memory File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/memory.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/Escritorio/ArquiComputadoras/Practico2/writeback.sv
+    Info (12023): Found entity 1: writeback File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/writeback.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/Escritorio/ArquiComputadoras/Practico1/imem.sv
+    Info (12023): Found entity 1: imem File: /home/amparo/Escritorio/ArquiComputadoras/Practico1/imem.sv Line: 1
+Info (12021): Found 2 design units, including 1 entities, in source file /home/amparo/Escritorio/ArquiComputadoras/Practico2/dmem.vhd
+    Info (12022): Found design unit 1: dmem-behave File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/dmem.vhd Line: 21
+    Info (12023): Found entity 1: dmem File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/dmem.vhd Line: 12
+Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/Escritorio/ArquiComputadoras/Practico2/decode.sv
+    Info (12023): Found entity 1: decode File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/decode.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/Escritorio/ArquiComputadoras/Practico2/datapath.sv
+    Info (12023): Found entity 1: datapath File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/datapath.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/Escritorio/ArquiComputadoras/Practico2/aludec.sv
+    Info (12023): Found entity 1: aludec File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/aludec.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/Escritorio/ArquiComputadoras/Practico2/controller.sv
+    Info (12023): Found entity 1: controller File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/controller.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/Escritorio/ArquiComputadoras/Practico2/processor_arm.sv
+    Info (12023): Found entity 1: processor_arm File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/processor_arm.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/Escritorio/ArquiComputadoras/Practico1/maindec.sv
+    Info (12023): Found entity 1: maindec File: /home/amparo/Escritorio/ArquiComputadoras/Practico1/maindec.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/Escritorio/ArquiComputadoras/Practico1/flopr.sv
     Info (12023): Found entity 1: flopr File: /home/amparo/Escritorio/ArquiComputadoras/Practico1/flopr.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file /home/amparo/Escritorio/ArquiComputadoras/Practico1/sl2.sv
@@ -407,266 +696,71 @@ Info (12021): Found 1 design units, including 1 entities, in source file modulos
 Info (12021): Found 1 design units, including 1 entities, in source file modulos/comp_n.sv
     Info (12023): Found entity 1: comp_n File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/comp_n.sv Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file modulos/exception.sv
-    Info (12023): Found entity 1: exception File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 3
+    Info (12023): Found entity 1: exception File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file modulos/execute.sv
     Info (12023): Found entity 1: execute File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/execute.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file modulos/fetch.sv
     Info (12023): Found entity 1: fetch File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/fetch.sv Line: 2
-Info (12127): Elaborating entity "exception" for the top level hierarchy
-Info (12128): Elaborating entity "mux4" for hierarchy "mux4:mux4" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 14
-Info (12128): Elaborating entity "comp_n" for hierarchy "comp_n:comp_n" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 17
-Info (12128): Elaborating entity "eSync" for hierarchy "eSync:esync" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 20
+Warning (10236): Verilog HDL Implicit Net warning at datapath.sv(31): created implicit net for "PCBranch1" File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/datapath.sv Line: 31
+Warning (10236): Verilog HDL Implicit Net warning at datapath.sv(35): created implicit net for "readData3" File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/datapath.sv Line: 35
+Warning (10236): Verilog HDL Implicit Net warning at datapath.sv(36): created implicit net for "PCBranch2" File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/datapath.sv Line: 36
+Warning (10236): Verilog HDL Implicit Net warning at processor_arm.sv(22): created implicit net for "Estatus" File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/processor_arm.sv Line: 22
+Info (12127): Elaborating entity "processor_arm" for the top level hierarchy
+Info (12128): Elaborating entity "controller" for hierarchy "controller:c" File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/processor_arm.sv Line: 32
+Info (12128): Elaborating entity "maindec" for hierarchy "controller:c|maindec:decPpal" File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/controller.sv Line: 32
+Info (12128): Elaborating entity "aludec" for hierarchy "controller:c|aludec:decAlu" File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/controller.sv Line: 38
+Info (12128): Elaborating entity "datapath" for hierarchy "datapath:dp" File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/processor_arm.sv Line: 55
+Info (12128): Elaborating entity "comp_n" for hierarchy "datapath:dp|comp_n:equal" File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/datapath.sv Line: 23
+Info (12128): Elaborating entity "exception" for hierarchy "datapath:dp|exception:EXC" File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/datapath.sv Line: 37
+Info (12128): Elaborating entity "eSync" for hierarchy "datapath:dp|exception:EXC|eSync:es" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 16
 Warning (10240): Verilog HDL Always Construct warning at eSync.sv(4): inferring latch(es) for variable "out", which holds its previous value in one or more paths through the always construct File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/eSync.sv Line: 4
 Info (10041): Inferred latch for "out" at eSync.sv(4) File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/eSync.sv Line: 4
-Info (12128): Elaborating entity "flopr_e" for hierarchy "flopr_e:flopre1" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 27
-Info (12128): Elaborating entity "mux2" for hierarchy "mux2:muxx2" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 39
-Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "IM_addr[63]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[62]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[61]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[60]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[59]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[58]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[57]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[56]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[55]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[54]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[53]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[52]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[51]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[50]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[49]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[48]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[47]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[46]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[45]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[44]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[43]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[42]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[41]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[40]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[39]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[38]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[37]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[36]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[35]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[34]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[33]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[32]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[31]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[30]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[29]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[28]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[27]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[26]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[25]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[24]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[23]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[22]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[21]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[20]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[19]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[18]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[17]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[16]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[15]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[14]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[13]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[12]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[11]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[10]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[9]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[8]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[7]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[6]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[5]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[4]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[3]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[2]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[1]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[0]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "IM_addr[63]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[62]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[61]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[60]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[59]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[58]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[57]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[56]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[55]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[54]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[53]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[52]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[51]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[50]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[49]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[48]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[47]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[46]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[45]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[44]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[43]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[42]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[41]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[40]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[39]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[38]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[37]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[36]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[35]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[34]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[33]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[32]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[31]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[30]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[29]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[28]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[27]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[26]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[25]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[24]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[23]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[22]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[21]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[20]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[19]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[18]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[17]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[16]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[15]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[14]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[13]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[12]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[11]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[10]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[9]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[8]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[7]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[6]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[5]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[4]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[3]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[2]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[1]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (12110): Net "IM_addr[0]" is missing source, defaulting to GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "IM_addr[0]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[1]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[2]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[3]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[4]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[5]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[6]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[7]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[8]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[9]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[10]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[11]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[12]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[13]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[14]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[15]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[16]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[17]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[18]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[19]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[20]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[21]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[22]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[23]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[24]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[25]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[26]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[27]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[28]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[29]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[30]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[31]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[32]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[33]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[34]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[35]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[36]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[37]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[38]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[39]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[40]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[41]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[42]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[43]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[44]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[45]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[46]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[47]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[48]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[49]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[50]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[51]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[52]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[53]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[54]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[55]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[56]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[57]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[58]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[59]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[60]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[61]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[62]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
-    Warning (13410): Pin "IM_addr[63]" is stuck at GND File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 6
+Info (12128): Elaborating entity "flopr_e" for hierarchy "datapath:dp|exception:EXC|flopr_e:ERR" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 24
+Info (12128): Elaborating entity "flopr_e" for hierarchy "datapath:dp|exception:EXC|flopr_e:ESR" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 36
+Info (12128): Elaborating entity "mux2" for hierarchy "datapath:dp|exception:EXC|mux2:mux2" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 41
+Info (12128): Elaborating entity "mux4" for hierarchy "datapath:dp|exception:EXC|mux4:mux4" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 50
+Info (12128): Elaborating entity "fetch" for hierarchy "datapath:dp|fetch:FETCH" File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/datapath.sv Line: 47
+Info (12128): Elaborating entity "mux2" for hierarchy "datapath:dp|fetch:FETCH|mux2:fetchmux" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/fetch.sv Line: 14
+Info (12128): Elaborating entity "flopr" for hierarchy "datapath:dp|fetch:FETCH|flopr:flopfetch" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/fetch.sv Line: 20
+Info (12128): Elaborating entity "adder" for hierarchy "datapath:dp|fetch:FETCH|adder:adderfetch" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/fetch.sv Line: 23
+Info (12128): Elaborating entity "decode" for hierarchy "datapath:dp|decode:DECODE" File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/datapath.sv Line: 58
+Info (12128): Elaborating entity "mux2" for hierarchy "datapath:dp|decode:DECODE|mux2:ra2mux" File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/decode.sv Line: 11
+Info (12128): Elaborating entity "regfile" for hierarchy "datapath:dp|decode:DECODE|regfile:registers" File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/decode.sv Line: 14
+Info (12128): Elaborating entity "signext" for hierarchy "datapath:dp|decode:DECODE|signext:ext" File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/decode.sv Line: 17
+Info (12128): Elaborating entity "execute" for hierarchy "datapath:dp|execute:EXECUTE" File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/datapath.sv Line: 71
+Info (12128): Elaborating entity "mux4" for hierarchy "datapath:dp|execute:EXECUTE|mux4:alumux" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/execute.sv Line: 9
+Info (12128): Elaborating entity "alu" for hierarchy "datapath:dp|execute:EXECUTE|alu:alu" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/execute.sv Line: 12
+Info (12128): Elaborating entity "sl2" for hierarchy "datapath:dp|execute:EXECUTE|sl2:shiftBR" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/execute.sv Line: 15
+Info (12128): Elaborating entity "memory" for hierarchy "datapath:dp|memory:MEMORY" File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/datapath.sv Line: 77
+Info (12128): Elaborating entity "writeback" for hierarchy "datapath:dp|writeback:WRITEBACK" File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/datapath.sv Line: 84
+Info (12128): Elaborating entity "imem" for hierarchy "imem:instrMem" File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/processor_arm.sv Line: 59
+Warning (10030): Net "ROM.data_a" at imem.sv(7) has no driver or initial value, using a default initial value '0' File: /home/amparo/Escritorio/ArquiComputadoras/Practico1/imem.sv Line: 7
+Warning (10030): Net "ROM.waddr_a" at imem.sv(7) has no driver or initial value, using a default initial value '0' File: /home/amparo/Escritorio/ArquiComputadoras/Practico1/imem.sv Line: 7
+Warning (10030): Net "ROM.we_a" at imem.sv(7) has no driver or initial value, using a default initial value '0' File: /home/amparo/Escritorio/ArquiComputadoras/Practico1/imem.sv Line: 7
+Info (12128): Elaborating entity "dmem" for hierarchy "dmem:dataMem" File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/processor_arm.sv Line: 68
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276007): RAM logic "datapath:dp|decode:DECODE|regfile:registers|regs" is uninferred due to asynchronous read logic File: /home/amparo/Escritorio/ArquiComputadoras/Practico1/regfile.sv Line: 30
+Warning (12241): 5 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (286030): Timing-Driven Synthesis is running
+Info (144001): Generated suppressed messages file /home/amparo/Escritorio/ArquiComputadoras/Practico3/output_files/PART3_SingleCycleProcessor.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 41 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "clk" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 3
-    Warning (15610): No output dependent on input pin "reset" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 3
-    Warning (15610): No output dependent on input pin "Exc" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 3
-    Warning (15610): No output dependent on input pin "ExcAck" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 3
-    Warning (15610): No output dependent on input pin "ERet" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 3
-    Warning (15610): No output dependent on input pin "EStatus[0]" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 4
-    Warning (15610): No output dependent on input pin "EStatus[1]" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 4
-    Warning (15610): No output dependent on input pin "EStatus[2]" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 4
-    Warning (15610): No output dependent on input pin "EStatus[3]" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 4
-    Warning (15610): No output dependent on input pin "IM_readData[0]" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 5
-    Warning (15610): No output dependent on input pin "IM_readData[1]" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 5
-    Warning (15610): No output dependent on input pin "IM_readData[2]" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 5
-    Warning (15610): No output dependent on input pin "IM_readData[3]" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 5
-    Warning (15610): No output dependent on input pin "IM_readData[4]" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 5
-    Warning (15610): No output dependent on input pin "IM_readData[5]" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 5
-    Warning (15610): No output dependent on input pin "IM_readData[6]" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 5
-    Warning (15610): No output dependent on input pin "IM_readData[7]" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 5
-    Warning (15610): No output dependent on input pin "IM_readData[8]" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 5
-    Warning (15610): No output dependent on input pin "IM_readData[9]" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 5
-    Warning (15610): No output dependent on input pin "IM_readData[10]" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 5
-    Warning (15610): No output dependent on input pin "IM_readData[11]" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 5
-    Warning (15610): No output dependent on input pin "IM_readData[12]" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 5
-    Warning (15610): No output dependent on input pin "IM_readData[13]" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 5
-    Warning (15610): No output dependent on input pin "IM_readData[14]" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 5
-    Warning (15610): No output dependent on input pin "IM_readData[15]" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 5
-    Warning (15610): No output dependent on input pin "IM_readData[16]" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 5
-    Warning (15610): No output dependent on input pin "IM_readData[17]" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 5
-    Warning (15610): No output dependent on input pin "IM_readData[18]" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 5
-    Warning (15610): No output dependent on input pin "IM_readData[19]" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 5
-    Warning (15610): No output dependent on input pin "IM_readData[20]" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 5
-    Warning (15610): No output dependent on input pin "IM_readData[21]" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 5
-    Warning (15610): No output dependent on input pin "IM_readData[22]" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 5
-    Warning (15610): No output dependent on input pin "IM_readData[23]" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 5
-    Warning (15610): No output dependent on input pin "IM_readData[24]" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 5
-    Warning (15610): No output dependent on input pin "IM_readData[25]" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 5
-    Warning (15610): No output dependent on input pin "IM_readData[26]" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 5
-    Warning (15610): No output dependent on input pin "IM_readData[27]" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 5
-    Warning (15610): No output dependent on input pin "IM_readData[28]" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 5
-    Warning (15610): No output dependent on input pin "IM_readData[29]" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 5
-    Warning (15610): No output dependent on input pin "IM_readData[30]" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 5
-    Warning (15610): No output dependent on input pin "IM_readData[31]" File: /home/amparo/Escritorio/ArquiComputadoras/Practico3/modulos/exception.sv Line: 5
-Info (21057): Implemented 105 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 41 input pins
-    Info (21059): Implemented 64 output pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 240 warnings
-    Info: Peak virtual memory: 370 megabytes
-    Info: Processing ended: Mon Sep 19 22:04:36 2022
-    Info: Elapsed time: 00:00:46
-    Info: Total CPU time (on all processors): 00:01:05
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "dump" File: /home/amparo/Escritorio/ArquiComputadoras/Practico2/processor_arm.sv Line: 7
+Info (21057): Implemented 12526 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 4 input pins
+    Info (21059): Implemented 130 output pins
+    Info (21061): Implemented 12392 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 12 warnings
+    Info: Peak virtual memory: 460 megabytes
+    Info: Processing ended: Tue Sep 27 20:20:06 2022
+    Info: Elapsed time: 00:03:40
+    Info: Total CPU time (on all processors): 00:03:54
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in /home/amparo/Escritorio/ArquiComputadoras/Practico3/output_files/PART3_SingleCycleProcessor.map.smsg.
 
 

@@ -1,5 +1,5 @@
 Flow report for PART3_SingleCycleProcessor
-Mon Sep 19 22:04:36 2022
+Tue Sep 27 20:20:06 2022
 Quartus Prime Version 20.1.0 Build 711 06/05/2020 SJ Lite Edition
 
 
@@ -41,16 +41,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Mon Sep 19 22:04:36 2022       ;
+; Flow Status                        ; Successful - Tue Sep 27 20:20:06 2022       ;
 ; Quartus Prime Version              ; 20.1.0 Build 711 06/05/2020 SJ Lite Edition ;
 ; Revision Name                      ; PART3_SingleCycleProcessor                  ;
-; Top-level Entity Name              ; exception                                   ;
+; Top-level Entity Name              ; processor_arm                               ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 0                                           ;
-;     Total combinational functions  ; 0                                           ;
-;     Dedicated logic registers      ; 0                                           ;
-; Total registers                    ; 0                                           ;
-; Total pins                         ; 105                                         ;
+; Total logic elements               ; 12,264                                      ;
+;     Total combinational functions  ; 6,323                                       ;
+;     Dedicated logic registers      ; 6,206                                       ;
+; Total registers                    ; 6206                                        ;
+; Total pins                         ; 134                                         ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -63,31 +63,31 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+----------------------------+
 ; Option            ; Setting                    ;
 +-------------------+----------------------------+
-; Start date & time ; 09/19/2022 22:03:53        ;
+; Start date & time ; 09/27/2022 20:16:26        ;
 ; Main task         ; Compilation                ;
 ; Revision Name     ; PART3_SingleCycleProcessor ;
 +-------------------+----------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                                                            ;
-+-------------------------------------+----------------------------------------+----------------------------+-------------+-----------------------------------+
-; Assignment Name                     ; Value                                  ; Default Value              ; Entity Name ; Section Id                        ;
-+-------------------------------------+----------------------------------------+----------------------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 242944917050991.166363583324993        ; --                         ; --          ; --                                ;
-; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --                         ; --          ; eda_board_design_timing           ;
-; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --                         ; --          ; eda_board_design_boundary_scan    ;
-; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --                         ; --          ; eda_board_design_signal_integrity ;
-; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --                         ; --          ; eda_board_design_symbol           ;
-; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                            ; --                         ; --          ; eda_simulation                    ;
-; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)              ; <None>                     ; --          ; --                                ;
-; EDA_TIME_SCALE                      ; 1 ps                                   ; --                         ; --          ; eda_simulation                    ;
-; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --                         ; exception   ; Top                               ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --                         ; exception   ; Top                               ;
-; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --                         ; exception   ; Top                               ;
-; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --                         ; --          ; --                                ;
-; TOP_LEVEL_ENTITY                    ; exception                              ; PART3_SingleCycleProcessor ; --          ; --                                ;
-+-------------------------------------+----------------------------------------+----------------------------+-------------+-----------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                                              ;
++-------------------------------------+----------------------------------------+----------------------------+---------------+-----------------------------------+
+; Assignment Name                     ; Value                                  ; Default Value              ; Entity Name   ; Section Id                        ;
++-------------------------------------+----------------------------------------+----------------------------+---------------+-----------------------------------+
+; COMPILER_SIGNATURE_ID               ; 242944917050991.166432058614786        ; --                         ; --            ; --                                ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --                         ; --            ; eda_board_design_timing           ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --                         ; --            ; eda_board_design_boundary_scan    ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --                         ; --            ; eda_board_design_signal_integrity ;
+; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --                         ; --            ; eda_board_design_symbol           ;
+; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                            ; --                         ; --            ; eda_simulation                    ;
+; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)              ; <None>                     ; --            ; --                                ;
+; EDA_TIME_SCALE                      ; 1 ps                                   ; --                         ; --            ; eda_simulation                    ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --                         ; processor_arm ; Top                               ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --                         ; processor_arm ; Top                               ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --                         ; processor_arm ; Top                               ;
+; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --                         ; --            ; --                                ;
+; TOP_LEVEL_ENTITY                    ; processor_arm                          ; PART3_SingleCycleProcessor ; --            ; --                                ;
++-------------------------------------+----------------------------------------+----------------------------+---------------+-----------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------+
@@ -95,8 +95,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:46     ; 1.0                     ; 359 MB              ; 00:01:05                           ;
-; Total                ; 00:00:46     ; --                      ; --                  ; 00:01:05                           ;
+; Analysis & Synthesis ; 00:03:38     ; 1.0                     ; 460 MB              ; 00:03:51                           ;
+; Total                ; 00:03:38     ; --                      ; --                  ; 00:03:51                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

@@ -1,42 +1,52 @@
-// se deben instanciar los módulos creados en el ejercicio 1 (#flopr_e, #mux4, #ESync, #comp_n)
-// y realizar las conexiones correspondientes en el módulo #datapath.
-module exception (input logic clk, reset, Exc, ExcAck, ERet,
-						input logic [3:0] EStatus,
-						input logic [31:0] IM_readData,
-						output logic [63:0] IM_addr); 
-
-
-	logic esync_or, EProc;
-	logic [63:0] flopre1_mux4, flopre2_mux4, readData3_E, NextPC_F, flopre3_mux4;
-	logic [63:0] execute_mux2, PCBranch;
+module exception (input logic Exc, ExcAck, Eret, reset, clk,
+					input logic [63:0] NextPC_F, PCBranch_E, Exc_vector,
+					input logic [3:0] EStatusI,
+					input logic [31:0] IM_readData,
+					output logic [63:0] readData3_E, PCBranch,
+					output logic eproc);
 	
-	// Instancia del modulo mux4
-	mux4 mux4(.d0(), .d1(), .d2(), .d3());
+	logic out_esync;
+	logic [63:0] out_ELR, out_ERR, input_d2mux;
+	logic [3:0] out_ESR;
 	
-	// Instancia del modulo comp_n
-	comp_n comp_n(.in1(64'hD8), .in2(IM_addr), .out(ExcAck));
 	
-	// Instancia del modulo ESync
-	eSync esync(.Exc(Exc), .resetEsync(ExcAck), .reset(reset), .out(esync_or));
-	always_comb
-		begin
-			EProc = esync_or & (!reset);
-		end
+	eSync 	es       (.Exc(Exc),
+								.resetEsync(ExcAck),
+								.reset(reset),
+								.out(out_esync));
+				
+	assign eproc = out_esync & ~reset;
 	
-	// Instancia 1 del modulo flopr_e
-	flopr_e flopre1(.clk(clk), .reset(reset), .enable(EProc), .d(IM_addr), .q(flopre1_mux4));
+	flopr_e  #(64)		ERR(.clk(clk),
+								 .reset(reset),
+								 .enable(eproc),
+								 .d(NextPC_F),
+								 .q(out_ERR));
 	
-	// Instancia 2 del modulo flopr_e
-	flopr_e flopre2(.clk(clk), .reset(reset), .enable(EProc), .d(EStatus), .q(flopre2_mux4));
+	flopr_e 	#(64)		ELR(.clk(clk),
+								 .reset(reset),
+								 .enable(eproc),
+								 .d(Exc_vector),
+								 .q(out_ELR));
+								 
+	flopr_e	#(4)		ESR(.clk(clk),
+								 .reset(reset),
+								 .enable(eproc),
+								 .d(EStatusI),
+								 .q(out_ESR));
 	
-	// Instancia MUX4
-	mux4 muxx4(.d0(flopre3_mux4), .d1(flopre1_mux4), .d2(flopre2_mux4), .d3(64'b0), .s(IM_readData), .y(readData3_E));
+	mux2 		#(64)		mux2(.d0(PCBranch_E),
+								  .d1(out_ERR),
+								  .s(Eret),
+								  .y(PCBranch));
 	
-	// Instancia 3 del modulo flopr_e
-	flopr_e flopre3(.clk(clk), .reset(reset), .enable(EProc), .d(NextPC_F), .q(flopre3_mux4));
+	assign input_d2mux = {60'b0, out_ESR};
+								 
+	mux4 		#(64)		mux4(.d0(out_ERR),
+								  .d1(out_ELR),
+								  .d2(input_d2mux),
+								  .d3({64'b0}),
+								  .s(IM_readData[13:12]),
+								  .y(readData3_E));
 	
-	// Instancia del mux2
-	mux2 muxx2(.d0(execute_mux2), .d1(flopre3_mux4), .s(ERet), .y(PCBranch));
-	
-		
 endmodule
