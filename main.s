@@ -1,131 +1,91 @@
-	.text
-	.org 0x0000
-	
-	/*// Ejercicio 2-A: con la menor cantidad de registros e instrucciones, inicializar con el valor de su índice
-	//las primeras N posiciones de memoria (comenzando en la dirección “0”)
-
-	// Los registros vienen inicializados de x0 a x30 con el valor de sus indices
-	add x5, x30, x30 // x5 = x30 + x30 = 30 + 30 = 60
-	add x5, x5, x4 // x5 = x5 + x4 = 60 + 4 = 64 // x5 será el contador de posiciones
-	sub x2, x2, x2 // x2 = x2 - x2 = 2 - 2 = 0
-loop:
-	stur x2, [x0, #0] // carga el valor de x2 en la direccion de mem apuntada por x0 + 0 = en la address 0 guardará 0
-						// es decir, la memoria en la posición 0 queda con el valor 0
-	add x0, x0, x8 // x0 = 0 + 8 = 8 para pasar a la siguiente posicion de memoria
-	sub x5, x5, x1 // x5 = x5 - x1 = 64 - 1 = 63 // decremento el contador pq ya avancé a la siguiente posicion de mem
-	add x2, x2, x1 // x2 = x2 + x1 = 0 + 1 = 1 // aumento para la inicializacion
-	cbz x5, exitloop // Se ejecutará 64 veces hasta q x5 llegue a 0 y termina el programa
-	cbz xzr, loop
-exitloop: 
-	cbz XZR, exitloop*/
-
-
-	// Ejercicio 2-B: Realizar la sumatoria de las primeras N posiciones de memoria y guardar el resultado
-	//en la posición N+1
-
-	// N = 29
-	// Inizialización de la memoria
-		ADD x10, xzr, xzr // x10 = 0
-	loop2: // while x0 != 30
-		SUB x11, x0, x30 //x11 = -30
-		CBZ x11, end // hasta q 
-		STUR x0, [x10, #0] //
-		ADD x0, x1, x0 //
-		ADD x10, x10, x8 //
-		CBZ xzr, loop2 //
-	end:
-
-	// Ejercicio 2b
-	// N = 29
-
-
-		stur x12, [x0, #8] // x12 = 12. Cargo el valor 12 en la 2da posicion de memoria
-		stur x18, [x0, #32] // cargo 18 en la 4ta posicion de memoria 
-
-
-
-		add x2, xzr, xzr
-		add x4, xzr, xzr
-	loop: // do while x0 != 30
-		ldur x3, [x2, #0]
-		add x4, x4, x3
-		add x2, x2, x8
-
-		add x5, x5, x1
-		// end loop
-		sub x5, x30, x0
-		cbz x5, loop
-
-		stur x4, [x2, #0]
-
-
-	infloop:
-		cbz xzr, infloop
-
-
-/*imem anterior:
-		ROM = '{32'hf8000001,
-			   32'hf8008002,
-			   32'hf8000203,
-				32'h8b050083,
-				32'hf8018003,	
-				32'hcb050083,
-				32'hf8020003,
-				32'hcb0a03e4,
-				32'hf8028004,
-				32'h8b040064,
-				32'hf8030004,
-				32'hcb030025,
-				32'hf8038005,
-				32'h8a1f0145,
-				32'hf8040005,
-				32'h8a030145,
-				32'hf8048005,
-				32'h8a140294,
-				32'hf8050014,
-				32'haa1f0166,
-				32'hf8058006,
-				32'haa030166,
-				32'hf8060006,
-				32'hf840000c,
-				32'h8b1f0187,
-				32'hf8068007,
-				32'hf807000c,
-				32'h8b0e01bf,
-				32'hf807801f,
-				32'hb4000040,
-				32'hf8080015,
-				32'hf8088015,
-				32'h8b0103e2,
-				32'hcb010042,
-				32'h8b0103f8,
-				32'hf8090018,
-				32'h8b080000,
-				32'hb4ffff82,
-				32'hf809001e,
-				32'h8b1e03de,
-				32'hcb1503f5,
-				32'h8b1403de,
-				32'hf85f83d9,
-				32'h8b1e03de,
-				32'h8b1003de,
-				32'hf81f83d9,
-				32'hb400001f,
-				'0,
-				'0,
-				'0,
-				'0,
-				'0,
-				'0,
-				'0,
-				'0,
-				'0,
-				'0,
-				'0,
-				'0,
-				'0,
-				'0,
-				'0,
-				'0,
-				'0};
-				*/
+// Dirección:valor
+STUR X1, [X0, #0] // MEM 0:0x1
+STUR X2, [X0, #8] // MEM 1:0x2
+STUR X3, [X16, #0] // MEM 2:0x3
+ADD X3, X4, X5 // x3 = 9
+ADD XZR, XZR, XZR // NOP--------
+ADD XZR, XZR, XZR // NOP--------
+STUR X3, [X0, #24] // MEM 3:0x9
+SUB X3, X4, X5 // x3 = -1
+ADD XZR, XZR, XZR // NOP--------
+ADD XZR, XZR, XZR // NOP--------
+STUR X3, [X0, #32] // MEM 4:0xFFFFFFFFFFFFFFFF
+SUB X4, XZR, X10 // x4 = -10
+ADD XZR, XZR, XZR // NOP--------
+ADD XZR, XZR, XZR // NOP--------
+STUR X4, [X0, #40] // MEM 5:0xFFFFFFFFFFFFFFF6
+ADD X4, X3, X4 // x4 = -7
+ADD XZR, XZR, XZR // NOP--------
+ADD XZR, XZR, XZR // NOP--------
+STUR X4, [X0, #48] // MEM 6:0xFFFFFFFFFFFFFFF5
+SUB X5, X1, X3 // x5 = 2
+ADD XZR, XZR, XZR // NOP--------
+ADD XZR, XZR, XZR // NOP--------
+STUR X5, [X0, #56] // MEM 7:0x2
+AND X5, X10, XZR // x5 = 0
+ADD XZR, XZR, XZR // NOP--------
+ADD XZR, XZR, XZR // NOP--------
+STUR X5, [X0, #64] // MEM 8:0x0
+AND X5, X10, X3 // x5 = A
+ADD XZR, XZR, XZR // NOP--------
+ADD XZR, XZR, XZR // NOP--------
+STUR X5, [X0, #72] // MEM 9:0xA
+AND X20, X20, X20 // x20 = 20
+ADD XZR, XZR, XZR // NOP--------
+ADD XZR, XZR, XZR // NOP--------
+STUR X20, [X0, #80] // MEM 10:0x14
+ORR X6, X11, XZR // x6 = 11 = B
+ADD XZR, XZR, XZR // NOP--------
+ADD XZR, XZR, XZR // NOP--------
+STUR X6, [X0, #88] // MEM 11:0xB
+ORR X6, X11, X3 // x6 = F..F
+ADD XZR, XZR, XZR // NOP--------
+ADD XZR, XZR, XZR // NOP--------
+STUR X6, [X0, #96] // MEM 12:0xFFFFFFFFFFFFFFFF
+LDUR X12, [X0, #0] // x12 = 1
+ADD XZR, XZR, XZR // NOP--------
+ADD XZR, XZR, XZR // NOP--------
+ADD X7, X12, XZR // x7 = 1
+ADD XZR, XZR, XZR // NOP--------
+ADD XZR, XZR, XZR // NOP--------
+STUR X7, [X0, #104] // MEM 13:0x1
+STUR X12, [X0, #112] // MEM 14:0x1
+ADD XZR, X13, X14
+//ADD XZR, XZR, XZR // NOP-------- no se si son necesarios estos
+//ADD XZR, XZR, XZR // NOP--------
+STUR XZR, [X0, #120] // MEM 15:0x0
+CBZ X0, loop1       // Si salta
+ADD XZR, XZR, XZR // NOP
+ADD XZR, XZR, XZR // NOP
+ADD XZR, XZR, XZR // NOP
+STUR X21, [X0, #128] // MEM 16:0x0(si falla CBZ =21)
+loop1: STUR X21, [X0, #136] // MEM 17:0x15
+ADD X2, XZR, X1     // x2 = 1
+ADD XZR, XZR, XZR // NOP--------
+ADD XZR, XZR, XZR // NOP--------
+loop2: SUB X2, X2, X1   // x2 = 0 // x2 = -1
+ADD X24, XZR, X1        // x24 = 1              // 35
+ADD XZR, XZR, XZR // NOP--------            
+ADD XZR, XZR, XZR // NOP--------
+STUR X24, [X0, #144] // MEM 18:0x1 y MEM 19=0x1     // 36
+ADD X0, X0, X8  // x0 = 8 en teoria   // x0 = 16 (2do loop)
+CBZ X2, loop2       //Salta y dsp No salta         // 38
+ADD XZR, XZR, XZR // NOP
+ADD XZR, XZR, XZR // NOP
+ADD XZR, XZR, XZR // NOP
+STUR X30, [X0, #144] // MEM 20:0x1E
+ADD X30, X30, X30                           //40
+SUB X21, XZR, X21                           //41
+ADD XZR, XZR, XZR // NOP
+ADD X30, X30, X20                           //42
+ADD XZR, XZR, XZR // NOP--------
+ADD XZR, XZR, XZR // NOP--------
+LDUR X25, [X30, #-8]                        // 43
+ADD X30, X30, X30                           // 44  
+ADD XZR, XZR, XZR // NOP--------
+ADD XZR, XZR, XZR // NOP--------
+ADD X30, X30, X16                           // 45
+ADD XZR, XZR, XZR // NOP--------
+ADD XZR, XZR, XZR // NOP--------
+STUR X25, [X30, #-8] // MEM 21:0xA (= MEM 9)
+finloop: CBZ XZR, finloop

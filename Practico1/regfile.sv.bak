@@ -29,22 +29,13 @@ module regfile(input logic clk, we3,
 										64'd24, 64'd25, 64'd26, 64'd27, 
 										64'd28, 64'd29, 64'd30, 64'd0};
 	 
-
 	 // lectura de los datos de salida Asincrona (Automatica. Apenas cambia la entrada, cambia la salida)
 	 //La opcion mas corta es hacer:
-	 //assign rd1 = (ra1 === 5'd31) ? 64'd0 : regs[ra1];
-	 //assign rd2 = (ra2 === 5'd31) ? 64'd0 : regs[ra2];
-	 always_comb 
-	 begin
-		 if (we3 & ra1 === wa3 & wa3 !== 5'd31) rd1 <= wd3;
-		 else rd1 = regs[ra1];
-			
-		 if (we3 & ra2 === wa3 & wa3 !== 5'd31) rd2 <= wd3;
-		 else rd2 = regs[ra2];
-	 end
+	 assign rd1 = (ra1 === 5'd31) ? 64'd0 : regs[ra1];
+	 assign rd2 = (ra2 === 5'd31) ? 64'd0 : regs[ra2];
 	 
-	 always_ff @(posedge clk)
-	 if (we3 && wa3 !== 5'd31)
-		regs[wa3] <= wd3;
-
+	 always_ff @(posedge clk) // si viene un flaco positivo de clk
+		if(we3) // Cuando we3 esta en 1 y flanco + de clk es pq esta habilitado p escribir
+			regs[wa3] <= wd3; // asignacion no bloqueante pq es always_ff
+			
 endmodule
